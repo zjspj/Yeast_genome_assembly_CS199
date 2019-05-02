@@ -16,7 +16,7 @@ PATH=/data/users/jiadony1/bin/canu-1.8/Linux-amd64/bin:$PATH
 INPUT_DIR=/pub/jiadony1/canu_job/4_merged_fastq
 OUTPUT_DIR=/pub/jiadony1/canu_job/5_canu
 OUTPUT_NAME=yeast.fastq
-GENOME_SIZE=4.6m
+GENOME_SIZE=12m
 
 canu -p 5_canu -d ${OUTPUT_DIR} genomeSize=${GENOME_SIZE} -pacbio-raw ${INPUT_DIR}/${OUTPUT_NAME} useGrid=false
 
