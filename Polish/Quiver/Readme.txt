@@ -1,6 +1,6 @@
 Readme
 
-This folder contains all the codes used to polish the genome assembly results.
+This folder contains all the codes used to polish the genome assembly results using quiver.
 
 The order to use these code:
 
