@@ -15,7 +15,7 @@ INPUT_FILE_DIR=/pub/renhaol1/canu_job/2_unzip_pacbio
 INPUT_FILE_LOC=2_unzip_pacbio
 
 # Put all raw data to a .fofn file
-ls ${INPUT_FILE_LOC}/*/*/*.bas.h5 > input_bas_master.fofn
+ls ${INPUT_FILE_LOC}/*/*/*.bas.h5 > input_master.fofn
 
 file=input_bas_master.fofn
 
@@ -23,13 +23,13 @@ file=input_bas_master.fofn
 while IFS= read line
 do
         SUB_NAME=$(echo $line | cut -d '/' -f2)
-        echo ${line} >> input_bas_${SUB_NAME}.fofn
+        echo ${line} >> input_${SUB_NAME}.fofn
         echo ${SUB_NAME} >> temp_myjoblist.txt
 
 done <"$file"
 
 # remove duplicated names of each raw data .gz file.
-awk '!seen[$0]++' temp_myjoblist.txt > myjoblist_bas.txt
+awk '!seen[$0]++' temp_myjoblist.txt > myjoblist.txt
 
 rm temp_myjoblist.txt
 
