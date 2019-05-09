@@ -1,24 +1,26 @@
 #!/bin/bash
-#$ -N pilon_bowtie2
+#$ -N pilon_samtools
 ## -t 1-11
-#$ -q pub8i free88i free72i free56i free48i free40i free32i free24i
+#$ -q free72i
 #$ -m beas
 #$ -M jiadony1@uci.edu
 
 #$ -ckpt restart
-#$ -pe openmp 32
+#$ -pe openmp 16
 
 source ~/.miniconda3rc
 conda activate final_project_1
 
-SAMPLE_DIR=/pub/jiadony1/rawdata/illumina
-SAMPLE_NAME=""
-SAMPLE_1="${SAMPLE_NAME}_1.fastq"
-SAMPLE_2="${SAMPLE_NAME}_2.fastq"
-WORK_DIR=/pub/jiadony1/canu_job/7_pilon/${SAMPLE_REFERENCE}
-SAMPLE_REFERENCE="consensus_2nd"
-ILLUMINA_SAMPLE_NAME=""
+WORK_DIR=/pub/jiadony1/canu_job/7_pilon
+ILLUMINA_SAMPLE_NAME="S288C"
+ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_consensus_second.sam"
+REF="consensus_second.fasta"
 
-bowtie2 --threads 32 -x ${WORK_DIR}/${SAMPLE_REFERENCE}.fasta -1 ${WORK_DIR}/${SAMPLE_1} -2 ${WORK_DIR}/${SAMPLE_2} -S ${WORK_DIR}/${ILLUMINA_SAMPLE_NAME}_${SAMPLE_REFERENCE}.sam
+ln -s /pub/jiadony1/canu_job/6_quiver/${REF} ${WORK_DIR}/${REF}
+
+samtools view --threads ${NSLOTS} -b ${WORK_DIR}/${ILLUMINA_ALLIGNED} --reference ${WORK_DIR}/${REF} -o ${WORK_DIR}/$(basename ${ILLUMINA_ALLIGNED} .sam).bam
+samtools sort --threads ${NSLOTS}  ${WORK_DIR}/$(basename ${ILLUMINA_ALLIGNED} .sam).bam -o ${WORK_DIR}/$(basename ${ILLUMINA_ALLIGNED} .sam)_sorted.bam
+samtools index -b ${WORK_DIR}/$(basename ${ILLUMINA_ALLIGNED} .sam)_sorted.bam ${WORK_DIR}/$(basename ${ILLUMINA_ALLIGNED} .sam)_sorted.bai
 
 conda deactivate
+

@@ -1,25 +1,30 @@
 #!/bin/bash
 #$ -N pilon_bowtie_build
 ## -t 1-11
-#$ -q pub8i free88i free72i free56i free48i free40i free32i free24i
+#$ -q free72i
 #$ -m beas
 #$ -M jiadony1@uci.edu
 
 #$ -ckpt restart
-#$ -pe openmp 32
+#$ -pe openmp 8
 
 source ~/.miniconda3rc
 conda activate final_project_1
 
 INPUT_DIR=/pub/jiadony1/canu_job/6_quiver
-INPUT_FILE="consensus_2nd.fasta"
+INPUT_FILE="consensus_second.fasta"
 OUTPUT_DIR=/pub/jiadony1/canu_job/7_pilon
 SAMPLE_DIR=/pub/jiadony1/rawdata/illumina
-ILLUMINA_SAMPLE_NAME=""
-mkdir OUTPUT_DIR
+SAMPLE_NAME="SRR1569900"
+mkdir ${OUTPUT_DIR}
 
-gunzip ${SAMPLE_DIR}/SAMPLE_NAME*.fastq.gz OUTPUT_DIR
+ln -s ${SAMPLE_DIR}/${SAMPLE_NAME}_1.fastq  ${OUTPUT_DIR}/${SAMPLE_NAME}_1.fastq
+ln -s ${SAMPLE_DIR}/${SAMPLE_NAME}_2.fastq  ${OUTPUT_DIR}/${SAMPLE_NAME}_2.fastq
 
-bowtie2-build --threads 32 ${INPUT_DIR}/${INPUT_FILE} ${OUTPUT_DIR}/${INPUT_FILE}
+
+#gunzip -c ${SAMPLE_DIR}/${SAMPLE_NAME}_1.fastq.gz > ${OUTPUT_DIR}/${SAMPLE_NAME}_1.fastq
+#gunzip -c ${SAMPLE_DIR}/${SAMPLE_NAME}_2.fastq.gz > ${OUTPUT_DIR}/${SAMPLE_NAME}_2.fastq
+
+bowtie2-build --threads ${NSLOTS} ${INPUT_DIR}/${INPUT_FILE} ${OUTPUT_DIR}/$(basename ${INPUT_FILE} .fasta)
 
 conda deactivate
