@@ -1,8 +1,8 @@
-Readme
+#Readme
 
-This folder contains all the codes used to polish the genome assembly results using pilon.
+##This folder contains all the codes used to polish the genome assembly results using pilon.
 
-The order to use these code:
+##The order to use these code:
 
 1st: pilon_bowtie_build.sh
 
