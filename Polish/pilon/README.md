@@ -8,5 +8,5 @@
 
 **3rd**: pilon_samtools.sh
 
-**4th**: pilon_run.sh    **need to be ran in the 7_pilon folder**
+**4th**: pilon_run.sh    **(need to be ran in the 7_pilon folder)**
 
