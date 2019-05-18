@@ -4,7 +4,7 @@
 
 **1st**: pilon_bowtie_build.sh
 
-**2nd**: pilon_pilon_bowtie2.sh
+**2nd**: pilon_bowtie2.sh
 
 **3rd**: pilon_samtools.sh
 
