@@ -13,7 +13,7 @@ conda activate final_project_1
 
 
 WORK_DIR=/pub/jiadony1/canu_job/7_pilon
-ILLUMINA_SAMPLE_NAME="S288C"
+ILLUMINA_SAMPLE_NAME="W303"
 ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_consensus_second_sorted.bam"
 REF="consensus_second.fasta"
 
