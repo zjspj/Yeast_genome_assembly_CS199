@@ -8,7 +8,7 @@
 #$ -ckpt restart
 #$ -pe openmp 1
 
-USERS_NAME=jiadongy1
+USERS_NAME="jiadongy1"
 
 
 mkdir /pub/${USERS_NAME}/canu_job
