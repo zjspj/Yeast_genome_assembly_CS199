@@ -7,15 +7,14 @@
 #$ -ckpt restart
 #$ -pe openmp 64
 
-
-source ~/.miniconda3rc
-conda activate final_project_1
-
-
-WORK_DIR=/pub/jiadony1/canu_job/7_pilon
+USER_NAME=jiadony1
+WORK_DIR=/pub/${USER_NAME}/canu_job/7_pilon
 ILLUMINA_SAMPLE_NAME="W303"
 ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_consensus_sorted.bam"
 REF="consensus.fasta"
+
+source ~/.miniconda3rc
+conda activate final_project_1
 
 #java -Xmx120G
 
