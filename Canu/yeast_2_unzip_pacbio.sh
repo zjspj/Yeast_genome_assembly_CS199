@@ -8,11 +8,13 @@
 #$ -ckpt restart
 #$ -pe openmp 1
 
+USER_NAME=jiadony1
+INPUT_DIR=/pub/${USER_NAME}/rawdata/pacbio
+OUTPUT_DIR=/pub/${USER_NAME}/canu_job/2_unzip_pacbio
+
 source ~/.miniconda3rc
 conda activate final_project_1
 
-INPUT_DIR=/pub/jiadony1/rawdata/pacbio
-OUTPUT_DIR=/pub/jiadony1/canu_job/2_unzip_pacbio
 mkdir ${OUTPUT_DIR}
 
 SEED=$(ls ${INPUT_DIR}/00*.tar.gz | head -n $SGE_TASK_ID | tail -n 1)
