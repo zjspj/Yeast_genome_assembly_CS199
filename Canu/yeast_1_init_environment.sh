@@ -8,6 +8,9 @@
 #$ -ckpt restart
 #$ -pe openmp 1
 
-mkdir /pub/jiadony1/canu_job
-mkdir /pub/jiadony1/canu_job/0_output
+USERS_NAME=jiadongy1
+
+
+mkdir /pub/${USERS_NAME}/canu_job
+mkdir /pub/${USERS_NAME}/canu_job/0_output
 qsub yeast_2_unzip_pacbio.sh
