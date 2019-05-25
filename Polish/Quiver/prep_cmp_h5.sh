@@ -7,7 +7,7 @@
 #$ -ckpt restart
 #$ -pe openmp 1
 
-USER_NAME=renhaol1
+USER_NAME="renhaol1"
 INPUT_FILE_DIR=/pub/${USER_NAME}/canu_job/2_unzip_pacbio
 INPUT_FILE_LOC=2_unzip_pacbio
 
