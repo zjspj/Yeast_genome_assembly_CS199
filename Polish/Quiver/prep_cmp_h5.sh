@@ -1,7 +1,7 @@
 #!/bin/bash
 #$ -N yeast_prep_quiver_1
 #$ -t 1-1
-#$ -q free48
+#$ -q free72i
 #$ -m beas
 #$ -M renhaol1@uci.edu
 #$ -ckpt restart
