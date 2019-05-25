@@ -7,12 +7,14 @@
 #$ -ckpt restart
 #$ -pe openmp 1
 
+
+USER_NAME=jiadony1
+INPUT_DIR=/pub/${USER_NAME}/canu_job/2_unzip_pacbio
+OUTPUT_DIR=/pub/${USER_NAME}/canu_job/4_merged_fastq
+
 source ~/.miniconda3rc
 conda activate final_project_1
 
-INPUT_JOBROOT_DIR
-INPUT_DIR=/pub/jiadony1/canu_job/2_unzip_pacbio
-OUTPUT_DIR=/pub/jiadony1/canu_job/4_merged_fastq
 mkdir ${OUTPUT_DIR}
 
 for file_folder in ${INPUT_DIR}/*;do
