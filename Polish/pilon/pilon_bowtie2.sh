@@ -8,7 +8,7 @@
 #$ -ckpt restart
 #$ -pe openmp 8
 
-USER_NAME=jiadony1
+USER_NAME="jiadony1"
 SAMPLE_NAME="SRR1569900"
 SAMPLE_1="${SAMPLE_NAME}_1.fastq"
 SAMPLE_2="${SAMPLE_NAME}_2.fastq"
