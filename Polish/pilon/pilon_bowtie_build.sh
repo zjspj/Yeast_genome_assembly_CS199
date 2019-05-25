@@ -7,7 +7,7 @@
 #$ -ckpt restart
 #$ -pe openmp 8
 
-USER_NAME=jiadony1
+USER_NAME="jiadony1"
 INPUT_DIR=/pub/${USER_NAME}/canu_job/6_quiver
 INPUT_FILE="consensus.fasta" # the results from the first round of quiver. change to consensus_second.fasta for the result from the second round of quiver.
 OUTPUT_DIR=/pub/${USER_NAME}/canu_job/7_pilon
