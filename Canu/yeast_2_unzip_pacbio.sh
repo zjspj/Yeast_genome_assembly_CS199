@@ -8,7 +8,7 @@
 #$ -ckpt restart
 #$ -pe openmp 1
 
-USER_NAME=jiadony1
+USER_NAME="jiadony1"
 INPUT_DIR=/pub/${USER_NAME}/rawdata/pacbio
 OUTPUT_DIR=/pub/${USER_NAME}/canu_job/2_unzip_pacbio
 
