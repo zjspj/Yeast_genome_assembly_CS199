@@ -8,16 +8,16 @@
 #$ -ckpt restart
 #$ -pe openmp 8
 
+USER_NAME=jiadony1
+WORK_DIR=/pub/${USER_NAME}/canu_job/7_pilon
+ILLUMINA_SAMPLE_NAME="W303"
+ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_consensus.sam"
+REF="consensus.fasta"
+
 source ~/.miniconda3rc
 conda activate final_project_1
 
-WORK_DIR=/pub/jiadony1/canu_job/7_pilon
-ILLUMINA_SAMPLE_NAME="S288C"
-ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_consensus_second.sam"
-REF="consensus_second.fasta"
-
 ln -s /pub/jiadony1/canu_job/6_quiver/${REF} ${WORK_DIR}/${REF}
-
 
 samtools view --threads 32 -b ${WORK_DIR}/${ILLUMINA_ALLIGNED} --reference ${WORK_DIR}/${REF} -o ${WORK_DIR}/$(basename ${ILLUMINA_ALLIGNED} .sam).bam
 samtools sort --threads 32 ${WORK_DIR}/$(basename ${ILLUMINA_ALLIGNED} .sam).bam -o ${WORK_DIR}/$(basename ${ILLUMINA_ALLIGNED} .sam)_sorted.bam
