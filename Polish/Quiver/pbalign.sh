@@ -7,6 +7,7 @@
 #$ -ckpt restart
 #$ -pe openmp 2
 
+#users need to have their own access to smrtanalysis version 2.3.0p5. It is installed on UCI HPC.
 module load smrtanalysis/2.3.0p5
 
 REF_FASTA="5_canu.contigs.fasta"
