@@ -1,7 +1,7 @@
 #!/bin/bash
 #$ -N yeast_quiver_2nd
 #$ -t 1-1
-#$ -q pub8i
+#$ -q free72i
 #$ -m beas
 #$ -M renhaol1@uci.edu
 #$ -ckpt restart
