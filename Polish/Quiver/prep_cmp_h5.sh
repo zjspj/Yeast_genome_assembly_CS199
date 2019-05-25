@@ -7,12 +7,13 @@
 #$ -ckpt restart
 #$ -pe openmp 1
 
+USER_NAME=renhaol1
+INPUT_FILE_DIR=/pub/${USER_NAME}/canu_job/2_unzip_pacbio
+INPUT_FILE_LOC=2_unzip_pacbio
+
 # after unzip the all the pacbio raw data
 source ~/.miniconda3rc
 conda activate final_project_1
-
-INPUT_FILE_DIR=/pub/renhaol1/canu_job/2_unzip_pacbio
-INPUT_FILE_LOC=2_unzip_pacbio
 
 # Put all raw data to a .fofn file
 ls ${INPUT_FILE_LOC}/*/*/*.bas.h5 > input_master.fofn
@@ -31,6 +32,6 @@ done <"$file"
 # remove duplicated names of each raw data .gz file.
 awk '!seen[$0]++' temp_myjoblist.txt > myjoblist.txt
 
-rm temp_myjoblist.txt
+rm temp_myjoblist.txt #remove the temp file
 
 conda deactivate
