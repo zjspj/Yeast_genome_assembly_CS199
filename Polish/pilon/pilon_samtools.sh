@@ -8,7 +8,7 @@
 #$ -ckpt restart
 #$ -pe openmp 8
 
-USER_NAME=jiadony1
+USER_NAME="jiadony1"
 WORK_DIR=/pub/${USER_NAME}/canu_job/7_pilon
 ILLUMINA_SAMPLE_NAME="W303"
 ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_consensus.sam"
