@@ -4,6 +4,7 @@
 #$ -pe openmp 1
 #$ -q pub8i
 
+#users need to have their own access to smrtanalysis version 2.3.0p5. It is installed on UCI HPC.
 module load smrtanalysis/2.3.0p5
 
 # merge and sort the cmp.h5 files generated from pbalign
