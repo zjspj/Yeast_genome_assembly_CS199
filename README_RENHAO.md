@@ -1,6 +1,6 @@
 Renhao Luo README.md
 
-Introduction
+# Introduction
 
 Yeast (Saccharomyces cerevisiae) has been recognized as an important model in the field of biology because some essential cellular processes are the same in human and in yeast. Scientists could use the yeast as a model to figure out the connection between gene, protein, and functions.
 
