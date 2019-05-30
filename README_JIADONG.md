@@ -1,5 +1,5 @@
 # 1. introduction
-##    Directory tree
+##                Directory tree
 # 2. Pipeline
 
 # 3. Pipeline Steps
