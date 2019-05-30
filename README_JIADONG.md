@@ -5,7 +5,7 @@
 |-- canu_job
 |   |-- 0_output
 |   |-- 10_mummer
-|   |   -- nucmer.sh
+|   |   `-- nucmer.sh
 |   |-- 2_unzip_pacbio
 |   |   |-- 0001
 |   |   |-- 0002
@@ -21,40 +21,34 @@
 |   |-- 4_merged_fastq
 |   |   `-- yeast.fastq
 |   |-- 5_canu
-|   |   |-- 5_canu.contigs.fasta
+|   |   `-- 5_canu.contigs.fasta
 |   |-- 6_quiver_1st
 |   |   |-- consensus.fasta
 |   |   |-- consensus.fastq
 |   |   |-- pbalign.sh
 |   |   |-- prep_cmp_h5.sh
 |   |   |-- prep_fofn.sh
-|   |   |-- quiver.sh
+|   |   `-- quiver.sh
 |   |-- 6_quiver_2nd
 |   |   |-- consensus.fasta
 |   |   |-- consensus_second.fasta
-|   |   |-- quiver2.sh
+|   |   `-- quiver2.sh
 |   |-- 7_pilon_0X1X
-|   |   |-- 5_canu.contigs_pilon.fasta
-|   |   |-- pilon_bowtie2.sh
-|   |   |-- pilon_run.sh
-|   |   |-- pilon_samtools.sh
-|   |-- 7_pilon_1X1X
-|   |   |-- augustus_consensus_pilon.fasta
-|   |   |-- augustus.sh
-|   |   |-- consensus.fasta -> /pub/jiadony1/canu_job/6_quiver/consensus.fasta
-|   |   |-- consensus_pilon.fasta
 |   |   |-- pilon_bowtie2.sh
 |   |   |-- pilon_bowtie_build.sh
 |   |   |-- pilon_run.sh
-|   |   |-- pilon_samtools.sh
-|   |   |-- SRR1569900_1.fastq -> /pub/jiadony1/rawdata/illumina/SRR1569900_1.fastq
-|   |   `-- SRR1569900_2.fastq -> /pub/jiadony1/rawdata/illumina/SRR1569900_2.fastq
+|   |   `-- pilon_samtools.sh
+|   |-- 7_pilon_1X1X
+|   |   |-- augustus.sh
+|   |   |-- pilon_bowtie2.sh
+|   |   |-- pilon_bowtie_build.sh
+|   |   |-- pilon_run.sh
+|   |   `-- pilon_samtools.sh
 |   |-- 7_pilon_2X1X
-|   |   |-- consensus_second.fasta -> /pub/jiadony1/canu_job/6_quiver/consensus_second.fasta
-|   |   |-- consensus_second_pilon.fasta
-|   |   |-- ERX1999216_1.fastq
-|   |   |-- ERX1999216_2.fastq
-|   |   |-- pilon_run.sh -> /data/users/jiadony1/yeast_script/pilon/pilon_run.sh
+|   |   |-- pilon_bowtie2.sh
+|   |   |-- pilon_bowtie_build.sh
+|   |   |-- pilon_run.sh
+|   |   `-- pilon_samtools.sh
 |   |-- 8_quast
 |   |   |-- all_final_quast
 |   |   |-- all_quast
@@ -74,8 +68,7 @@
 |   |   `-- tmp
 |   `-- yeast_script
 |       |-- analysis
-|       |   |-- busco.sh
-|       |   `-- tmp
+|       |   `-- busco.sh
 |       |-- pilon
 |       |   |-- pilon_bowtie2.sh
 |       |   `-- pilon_bowtie_build.sh
@@ -110,8 +103,6 @@
     |   |-- ERX1999219_2.fastq.gz
     |   |-- SRR1569900_1.fastq
     |   `-- SRR1569900_2.fastq
-    |-- ont
-    |   `-- accessionlist.txt
     |-- pacbio
     |   |-- 0001.tar.gz
     |   |-- 0002.tar.gz
