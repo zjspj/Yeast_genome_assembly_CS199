@@ -69,16 +69,6 @@
 |   `-- yeast_script
 |       |-- analysis
 |       |   `-- busco.sh
-|       |-- pilon
-|       |   |-- pilon_bowtie2.sh
-|       |   `-- pilon_bowtie_build.sh
-|       |-- quiver
-|       |   |-- merge_cmp_h5.sh
-|       |   |-- pbalign.sh
-|       |   |-- prep_cmp_h5.sh
-|       |   |-- prep_fofn.sh
-|       |   |-- quiver2.sh
-|       |   `-- quiver.sh
 |       |-- separate_contigs.py
 |       |-- yeast_1_init_environment.sh
 |       |-- yeast_2_unzip_pacbio.sh
@@ -90,7 +80,6 @@
     |   |-- eukaryota_odb9.tar.gz
     |   |-- saccharomycetales_odb9
     |   `-- saccharomycetales_odb9.tar.gz
-    |-- dump.sh
     |-- illumina
     |   |-- accessionlist.txt
     |   |-- ERX1999216_1.fastq.gz
