@@ -9,11 +9,8 @@ In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio
 ## File Map
 
 ```
-/pub/jiadony1
 |-- canu_job
 |   |-- 0_output
-|   |-- 10_mummer
-|   |   `-- nucmer.sh
 |   |-- 2_unzip_pacbio
 |   |   |-- 0001
 |   |   |-- 0002
@@ -74,6 +71,8 @@ In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio
 |   |   |-- busco.tar.gz
 |   |   |-- log_busco
 |   |   `-- tmp
+|   |-- 10_mummer
+|   |   `-- nucmer.sh
 |   `-- yeast_script
 |       |-- analysis
 |       |   `-- busco.sh
