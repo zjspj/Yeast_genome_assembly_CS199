@@ -44,7 +44,7 @@ plot1 = plt.plot(x1, y1, marker = '.', linestyle = '-')
 plot2 = plt.plot(x2, y2, marker = '.', linestyle = '-')
 plot3 = plt.plot(x3, y3, marker = '.', linestyle = '-')
 
-plt.legend(['One Quiver and Pilon Polishing', 'Illumina Refence', "HGAP Assembly"], loc='best')
+plt.legend(['One Quiver and Pilon Polishing', 'Illumina Reference', "HGAP Assembly"], loc='best')
 
 plt.xlabel("Contig Length")
 plt.ylabel("Cumulative Probability")
