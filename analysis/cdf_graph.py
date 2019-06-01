@@ -38,7 +38,6 @@ y2 = np.arange(1, len(x2)+1) / len(x2)
 y3 = np.arange(1, len(x3)+1) / len(x3)
 
 
-
 plt.xlim(12000000, 0) # inverse the x axis
 
 plot1 = plt.plot(x1, y1, marker = '.', linestyle = '-')
