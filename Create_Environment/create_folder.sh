@@ -7,6 +7,7 @@
 #$ -pe openmp 1
 
 #### this program creates the directory structure needed for the pipeline under the directory it is ran.
+#### 5_canu folder is not created in purpose since canu will auto generate the run directory
 
 mkdir canu_job
 mkdir ./canu_job/
@@ -34,7 +35,6 @@ mkdir ./canu_job/2_unzip_pacbio/0019/Analysis_Results
 mkdir ./canu_job/2_unzip_pacbio/0020/Analysis_Results
 mkdir ./canu_job/2_unzip_pacbio/0021/Analysis_Results
 mkdir ./canu_job/4_merged_fastq
-mkdir ./canu_job/5_canu
 mkdir ./canu_job/6_quiver
 mkdir ./canu_job/7_pilon
 mkdir ./canu_job/8_quast
