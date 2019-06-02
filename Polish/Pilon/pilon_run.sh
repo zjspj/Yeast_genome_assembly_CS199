@@ -7,8 +7,7 @@
 #$ -ckpt restart
 #$ -pe openmp 64
 
-USER_NAME="jiadony1"
-WORK_DIR=/pub/${USER_NAME}/canu_job/7_pilon
+WORK_DIR=./canu_job/7_pilon
 ILLUMINA_SAMPLE_NAME="W303"
 ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_consensus_sorted.bam"
 REF="consensus.fasta"

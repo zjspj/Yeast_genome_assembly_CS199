@@ -8,11 +8,10 @@
 #$ -ckpt restart
 #$ -pe openmp 8
 
-USER_NAME="jiadony1"
 SAMPLE_NAME="SRR1569900"
 SAMPLE_1="${SAMPLE_NAME}_1.fastq"
 SAMPLE_2="${SAMPLE_NAME}_2.fastq"
-WORK_DIR=/pub/${USER_NAME}/canu_job/7_pilon
+WORK_DIR=./canu_job/7_pilon
 SAMPLE_REFERENCE="consensus"
 ILLUMINA_SAMPLE_NAME="W303"
 

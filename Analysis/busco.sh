@@ -14,6 +14,6 @@ INPUT_FASTA=7_pilon/consensus_pilon.fasta # change the file name to different ou
 source ~/.miniconda3rc
 conda activate final_project_1
 
-busco -c ${NSLOTS} -i /pub/${USER_NAME}/canu_job/${INPUT_FASTA} -l /pub/${USER_NAME}/rawdata/busco/saccharomycetales_odb9 -o 9_busco_${INPUT_DATA_TYPE} -m geno -sp saccharomyces_cerevisiae_S288C
+busco -c ${NSLOTS} -i ./canu_job/${INPUT_FASTA} -l /pub/${USER_NAME}/rawdata/busco/saccharomycetales_odb9 -o 9_busco_${INPUT_DATA_TYPE} -m geno -sp saccharomyces_cerevisiae_S288C
 
 conda deactivate
