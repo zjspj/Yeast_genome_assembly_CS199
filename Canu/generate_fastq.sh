@@ -1,7 +1,7 @@
 #!/bin/bash
 #$ -N generate_fastq
 ## -t 1-11
-#$ -q free88i
+#$ -q pub8i
 #$ -m beas
 #$ -M jiadony1@uci.edu
 #$ -ckpt restart

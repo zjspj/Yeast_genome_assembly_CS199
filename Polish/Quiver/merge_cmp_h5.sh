@@ -1,6 +1,7 @@
 #!/bin/bash
 #$ -N cmphmergecanu
 ### -t 1-17
+#$ -M jiadony1@uci.edu
 #$ -pe openmp 1
 #$ -q pub8i
 

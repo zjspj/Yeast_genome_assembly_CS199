@@ -3,7 +3,7 @@
 #$ -t 1-1
 #$ -q free72i
 #$ -m beas
-#$ -M renhaol1@uci.edu
+#$ -M jiadony1@uci.edu
 #$ -ckpt restart
 #$ -pe openmp 8
 
