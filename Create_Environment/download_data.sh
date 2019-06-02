@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N download_data
+#$ -N log_download_data
 #$ -q pub8i
 #$ -m beas
 #$ -M jiadony1@uci.edu

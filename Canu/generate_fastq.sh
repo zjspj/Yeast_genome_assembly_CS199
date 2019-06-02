@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N generate_fastq
+#$ -N log_generate_fastq
 ## -t 1-11
 #$ -q pub8i
 #$ -m beas

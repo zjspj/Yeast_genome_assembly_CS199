@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N yeast_prep_pbalign
+#$ -N log_pbalign
 #$ -t 1-11
 #$ -q pub8i
 #$ -m beas

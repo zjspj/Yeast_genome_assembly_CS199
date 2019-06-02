@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N cmphmergecanu
+#$ -N log_merge_cmp_h5
 ### -t 1-17
 #$ -M jiadony1@uci.edu
 #$ -pe openmp 1

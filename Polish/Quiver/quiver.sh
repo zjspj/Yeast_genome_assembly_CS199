@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N yeast_quiver_2nd
+#$ -N log_quiver
 #$ -t 1-1
 #$ -q free72i
 #$ -m beas
@@ -18,8 +18,8 @@ conda activate final_project_1
 samtools faidx ${REFERENCE}
 quiver ${QUERY} -r ${REFERENCE} -o variants.gff -o consensus.fasta -o consensus.fastq
 
-#second round of quiver. 
-samtools faidx ${SECOND_REF}
-quiver ${QUERY} -r ${SECOND_REF} -o variants_second.gff -o consensus_second.fasta -o consensus_second.fastq
+# #second round of quiver. 
+# samtools faidx ${SECOND_REF}
+# quiver ${QUERY} -r ${SECOND_REF} -o variants_second.gff -o consensus_second.fasta -o consensus_second.fastq
 
 conda deactivate

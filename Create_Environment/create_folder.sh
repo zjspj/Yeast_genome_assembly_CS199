@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N create_folder
+#$ -N log_create_folder
 #$ -q pub8i
 #$ -m beas
 #$ -M jiadony1@uci.edu

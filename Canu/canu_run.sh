@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N canu_run
+#$ -N log_canu_run
 ## -t 1-11
 #$ -q free72i
 #$ -m beas
