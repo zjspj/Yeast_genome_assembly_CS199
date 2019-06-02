@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N pilon_bowtie_build
+#$ -N log_bowtie_build
 ## -t 1-11
 #$ -q free72i
 #$ -m beas
@@ -12,8 +12,6 @@ INPUT_FILE="consensus.fasta" # the results from the first round of quiver. chang
 OUTPUT_DIR=./canu_job/7_pilon
 SAMPLE_DIR=./rawdata/illumina
 SAMPLE_NAME="SRR1569900"
-
-mkdir ${OUTPUT_DIR}
 
 source ~/.miniconda3rc
 conda activate final_project_1

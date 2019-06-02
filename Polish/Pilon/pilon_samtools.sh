@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N pilon_samtools
+#$ -N log_samtools
 ## -t 1-11
 #$ -q pub8i
 #$ -m beas

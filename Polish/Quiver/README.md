@@ -1,12 +1,12 @@
-# This folder contains all the codes used to polish the genome assembly results using quiver.
+# The scripts in this folder sets up the environment and run one round of quiver polishing from the previous Canu assembly.
 
-## The order to use these code:
+## The order and location to run these scripts:
 
-**1st**: prep_cmp_h5.sh
+**1st**: prep_cmp_h5.sh  (run inside folder canu_job/6_quiver/)
 
-**2nd**: pbalign.sh
+**2nd**: pbalign.sh  (run inside folder canu_job/6_quiver/)
 
-**3rd**: merge_cmp_h5.sh
+**3rd**: merge_cmp_h5.sh  (run inside folder canu_job/6_quiver/)
 
-**4th**: quiver.sh
+**4th**: quiver_run.sh  (run inside folder canu_job/6_quiver/)
 

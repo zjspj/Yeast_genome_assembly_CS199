@@ -1,12 +1,12 @@
-# This folder contains all the codes used to polish the genome assembly results using pilon.
+# This folder contains all scripts used to polish the genome assembly results using pilon.
 
-## The order to use these code:
+## The order and location to run these code:
 
-**1st**: pilon_bowtie_build.sh
+**1st**: bowtie_build.sh  (run in the master folder that contains canu_job/ and rawdata/ folder)
 
-**2nd**: pilon_bowtie2.sh
+**2nd**: bowtie2.sh  (run in the master folder that contains canu_job/ and rawdata/ folder)
 
-**3rd**: pilon_samtools.sh
+**3rd**: samtools.sh  (run in the master folder that contains canu_job/ and rawdata/ folder)
 
-**4th**: pilon_run.sh    **(need to be ran in the 7_pilon folder)**
+**4th**: pilon_run.sh  (run inside folder canu_job/7_pilon/)
 

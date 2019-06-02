@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N pilon_bowtie2
+#$ -N log_bowtie2
 ## -t 1-11
 #$ -q free72i
 #$ -m beas

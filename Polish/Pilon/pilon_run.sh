@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N pilon_run
+#$ -N log_pilon_run
 ## -t 1-11
 #$ -q free72i
 #$ -m beas

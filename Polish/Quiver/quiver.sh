@@ -1,6 +1,6 @@
 #!/bin/bash
-#$ -N log_quiver
-#$ -t 1-1
+#$ -N log_quiver_run
+## -t 1-1
 #$ -q free72i
 #$ -m beas
 #$ -M jiadony1@uci.edu
@@ -9,7 +9,7 @@
 
 QUERY="out_all.cmp.h5" # from previous step. This is a file combined all PacBio raw data.
 REFERENCE="5_canu.contigs.fasta" # from canu
-SECOND_REF="consensus.fasta" # from the first round of quiver
+# SECOND_REF="consensus.fasta" # from the first round of quiver
 
 source ~/.miniconda3rc
 conda activate final_project_1

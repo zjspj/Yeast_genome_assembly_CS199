@@ -1,9 +1,9 @@
 #!/bin/bash
 #$ -N log_merge_cmp_h5
-### -t 1-17
 #$ -M jiadony1@uci.edu
 #$ -pe openmp 1
 #$ -q pub8i
+#$ -ckpt restart
 
 #users need to have their own access to smrtanalysis version 2.3.0p5. It is installed on UCI HPC.
 module load smrtanalysis/2.3.0p5
