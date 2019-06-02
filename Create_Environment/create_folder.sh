@@ -1,4 +1,12 @@
-#!/bin/bash!
+#!/bin/bash
+#$ -N create_folder
+#$ -q pub8i
+#$ -m beas
+#$ -M jiadony1@uci.edu
+#$ -ckpt restart
+#$ -pe openmp 1
+
+#### this program creates the directory structure needed for the pipeline under the directory it is ran.
 
 mkdir canu_job
 mkdir ./canu_job/
