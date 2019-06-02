@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N yeast_generate_fastq
+#$ -N generate_fastq
 ## -t 1-11
 #$ -q free88i
 #$ -m beas
