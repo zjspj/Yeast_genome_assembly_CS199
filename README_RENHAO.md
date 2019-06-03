@@ -130,3 +130,5 @@ In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio
 # Pipeline Steps
 
 # Conclusion
+
+### [Final Write Up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
