@@ -119,6 +119,58 @@
 ```
 # 2. Pipeline
 
+bash5tool
+```
+bash5tools.py --outFilePrefix ${current_file_dir}/${name_prefix} --readType subreads --minLength 1000 --outType fastq --minReadScore 0.75 ${current_file_dir}/${name_prefix}.bas.h5
+```
+combine each fastq file
+```
+cat ${INPUT_DIR}/00*/Analysis_Results/*p0.fastq > ${OUTPUT_DIR}/yeast.fastq
+```
+
+
+canu
+```
+canu -p 5_canu -d ${OUTPUT_DIR} genomeSize=${GENOME_SIZE} -pacbio-raw ${INPUT_DIR}/${OUTPUT_NAME} useGrid=false
+```
+
+### ***Quiver***
+***1st: Generate .fofn file used in Pbalign***
+```
+ls ${INPUT_FILE_LOC}/*/*/*.bas.h5 > input_master.fofn
+```
+Generate .txt file for Pbalign
+```
+while IFS= read line
+do
+        SUB_NAME=$(echo $line | cut -d '/' -f2)
+        echo ${line} >> input_${SUB_NAME}.fofn
+        echo ${SUB_NAME} >> temp_myjoblist.txt
+
+done <"$file"
+
+awk '!seen[$0]++' temp_myjoblist.txt > myjoblist.txt
+```
+***2nd: Generate cmp.h5 file for each .bas file using Pbalign***
+```
+pbalign --forQuiver input_${SEED}.fofn ${REF_FASTA} out_${SEED}.cmp.h5
+```
+***3rd: Merge and sort .cmp.h5 file for each bas to a single file***
+```
+cmph5tools.py merge --outFile out_all.cmp.h5 $(ls out_*.cmp.h5)
+
+cmph5tools.py sort --deep out_all.cmp.h5
+
+h5repack -f GZIP=1 out_all.cmp.h5 tmp.cmp.h5 && mv tmp.cmp.h5 out_all.cmp.h5
+```
+***4th:Perform Quiver polishing***
+```
+samtools faidx ${REFERENCE}
+quiver ${QUERY} -r ${REFERENCE} -o variants.gff -o consensus.fasta -o consensus.fastq
+```
+### ***Pilon***
+***1st: Generate .fofn file used in Pbalign***
+
 # 3. Pipeline Steps
 
 # 4. Conclusion:
