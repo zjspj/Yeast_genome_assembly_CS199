@@ -1,1 +1,1 @@
-This folder contains all the results figures
+# This folder contains all the results figures
