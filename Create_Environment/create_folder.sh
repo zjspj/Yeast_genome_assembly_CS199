@@ -41,6 +41,7 @@ mkdir ./canu_job/8_quast
 mkdir ./canu_job/9_busco
 mkdir ./canu_job/10_mummer
 mkdir ./canu_job/11_cdp
+mkdir ./canu_job/12_augustus
 mkdir rawdata
 mkdir ./rawdata/illumina
 mkdir ./rawdata/REF
