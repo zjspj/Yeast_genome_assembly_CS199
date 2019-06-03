@@ -1,9 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-file1 = "consensus_pilon.fasta"
-file2 = "contigs_reference.fasta"
-file3 = "polished_assembly.fasta"
+file1 = "consensus_pilon.fasta" # One Quiver and Pilon Polishing
+file2 = "contigs_reference.fasta" # illumina contig reference
+file3 = "polished_assembly.fasta" # HGAP Assembly
 
 def get_stats(f):
     '''
@@ -22,8 +22,6 @@ def get_stats(f):
                         nt_len.append(len(nt))
                 contig_len.append(sum(nt_len))
     return contig_len
-
-# print(len(get_stats(file2)), get_stats(file2)[0], sum(get_stats(file2)))
 
 
 # making graph
