@@ -4,20 +4,26 @@
 
 ## Below is the location to run each script.
 
-### **RUN FIRST!!! : separate_short_read_contigs.py  (run inside folder rawdata/REF/)**
+### **RUN FIRST!!! : [separate_short_read_contigs.py](separate_short_read_contigs.py)  (run inside folder rawdata/REF/)**
 
-busco/
-busco.sh  (run inside folder canu_job/9_busco/) (activate different part of the script to obtain busco result for differernt assembly)
+#### busco
 
-mummer_plot/
-mummer_plot.sh  (run inside folder canu_job/10_mummer/)
+[busco.sh](busco/busco.sh)  (run inside folder canu_job/9_busco/) (activate different part of the script to obtain busco result for differernt assembly)
 
-CDF/
-cdf_graph.py  (run inside folder canu_job/11_CDF)
+#### mummer_plot/
 
-quast/
-quast.py  (run inside folder canu_job/8_quast)
+[mummer_plot.sh](mummer_plot/mummer_plot.sh)  (run inside folder canu_job/10_mummer/)
 
-augustus/
-**1st:** augustus.sh  (run inside folder canu_job/12_augustus)
-**2nd:** transdecoder.sh  (run inside folder canu_job/12_augustus)
+#### CDF/
+
+[cdf_graph.py](CDF/cdf_graph.py)  (run inside folder canu_job/11_CDF)
+
+#### quast/
+
+[quast.py](quast/quast.py)  (run inside folder canu_job/8_quast)
+
+#### augustus/
+
+**1st:** [augustus.sh](augustus/augustus.sh)  (run inside folder canu_job/12_augustus)
+
+**2nd:** [transdecoder.sh](augustus/transdecoder.sh)  (run inside folder canu_job/12_augustus)
