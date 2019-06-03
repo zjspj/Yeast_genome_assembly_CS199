@@ -5,7 +5,7 @@
 #$ -m beas
 #$ -M jiadony1@uci.edu
 #$ -ckpt restart
-#$ -pe openmp 64
+#$ -pe openmp 32
 
 WORK_DIR=./canu_job/7_pilon
 ILLUMINA_SAMPLE_NAME="W303"
