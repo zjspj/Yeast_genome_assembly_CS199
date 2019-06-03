@@ -20,7 +20,7 @@
 
 #### quast/
 
-[quast.py](quast/quast.py)  (run inside folder canu_job/8_quast)
+[quast.sh](quast/quast.sh)  (run inside folder canu_job/8_quast)
 
 #### augustus/
 
