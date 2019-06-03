@@ -1,7 +1,7 @@
 #!/bin/bash
 #$ -N log_samtools
 ## -t 1-11
-#$ -q pub8i
+#$ -q free72i
 #$ -m beas
 #$ -M jiadony1@uci.edu
 
