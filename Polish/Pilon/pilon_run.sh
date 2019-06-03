@@ -7,7 +7,6 @@
 #$ -ckpt restart
 #$ -pe openmp 32
 
-WORK_DIR=./canu_job/7_pilon
 ILLUMINA_SAMPLE_NAME="W303"
 ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_consensus_sorted.bam"
 REF="consensus.fasta"
@@ -17,6 +16,6 @@ conda activate final_project_1
 
 #java -Xmx120G
 
-pilon --vcf --tracks --threads ${NSLOTS} --genome ./${REF} --frags ./${ILLUMINA_ALLIGNED} --output ./$(basename ${REF} .fasta)_pilon
+pilon --vcf --tracks --threads ${NSLOTS} --genome ${REF} --frags ${ILLUMINA_ALLIGNED} --output $(basename ${REF} .fasta)_pilon
 
 conda deactivate
