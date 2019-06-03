@@ -119,6 +119,9 @@
 ```
 # 2. Pipeline
 
+[work_flow](Figures/work_flow.png)
+
+# 3. Pipeline Steps
 bash5tool
 ```
 bash5tools.py --outFilePrefix ${current_file_dir}/${name_prefix} --readType subreads --minLength 1000 --outType fastq --minReadScore 0.75 ${current_file_dir}/${name_prefix}.bas.h5
@@ -171,7 +174,6 @@ quiver ${QUERY} -r ${REFERENCE} -o variants.gff -o consensus.fasta -o consensus.
 ### ***Pilon***
 ***1st: Generate .fofn file used in Pbalign***
 
-# 3. Pipeline Steps
 
 # 4. Conclusion:
 ### [link to write up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
