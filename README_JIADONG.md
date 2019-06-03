@@ -119,7 +119,7 @@
 ```
 # 2. Pipeline
 
-[work_flow](Figures/work_flow.png)
+![work_flow](Figures/work_flow.png)
 
 # 3. Pipeline Steps
 bash5tool
