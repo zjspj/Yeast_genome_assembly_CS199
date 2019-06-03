@@ -124,11 +124,11 @@ In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio
     |-- SRR1569900_1.fastq
     `-- SRR1569900_2.fastq
 ```
-## Work Flow
+# Pipeline
 ![work flow](Figures/work_flow.png)
 
+The entire Assembly work flow is shown in the graph above. The blue arrow represents where the result from each step would go. After each step, a Busco score is obtained and statistical results are calculated by Quast. Each step is explained in the following sections. Information about versions are described in the [final paper](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing).
 
-# Pipeline
 
 # Pipeline Steps
 
