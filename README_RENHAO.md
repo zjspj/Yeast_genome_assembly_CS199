@@ -124,6 +124,9 @@ In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio
     |-- SRR1569900_1.fastq
     `-- SRR1569900_2.fastq
 ```
+## Work Flow
+![work flow](Figures/work_flow.png)
+
 
 # Pipeline
 
