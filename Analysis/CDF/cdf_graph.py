@@ -1,9 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-file1 = "consensus_pilon.fasta" # One Quiver and Pilon Polishing
-file2 = "contigs_reference.fasta" # illumina contig reference
-file3 = "polished_assembly.fasta" # HGAP Assembly
+file1 = "../7_pilon/consensus_pilon.fasta" # One Quiver and Pilon Polishing
+file2 = "../../rawdata/REF/HGAP_assembly.fasta" # illumina contig reference
+file3 = "../../rawdata/REF/illumina_MPG_2013_contig.fasta" # HGAP Assembly
 
 def get_stats(f):
     '''
