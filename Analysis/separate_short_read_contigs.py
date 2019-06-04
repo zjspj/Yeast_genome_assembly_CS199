@@ -38,13 +38,13 @@ def main(filename):
     return contigs
 
 
-all_contigs1 = main('illumina_MPC_2013.fasta')
+all_contigs1 = main('illumina_MPG_2013.fasta')
 print(len(all_contigs1))
 
 '''
 I store all the reads to a temp file, so it is easier for later use.
 '''
-f = open('illumina_MPC_2013_contig.fasta', 'w')
+f = open('illumina_MPG_2013_contig.fasta', 'w')
 count=0
 for i in all_contigs1:
     count+=1
