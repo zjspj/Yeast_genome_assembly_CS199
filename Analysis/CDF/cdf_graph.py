@@ -49,5 +49,7 @@ plt.ylabel("Cumulative Probability")
 
 plt.margins(0.02) # avoid out of range values
 
-plt.show()
+
+plt.savefig('CDF.png')
+# plt.show()
 

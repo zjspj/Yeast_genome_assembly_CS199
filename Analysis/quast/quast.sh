@@ -11,6 +11,6 @@
 source ~/.miniconda3rc
 conda activate final_project_1
 
-quast ../7_pilon/consensus_pilon.fasta ../../rawdata/REF/HGAP_assembly.fasta ../../rawdata/REF/illumina_MPC_2013_contig.fasta -o quast_result
+quast ../7_pilon/consensus_pilon.fasta ../../rawdata/REF/HGAP_assembly.fasta ../../rawdata/REF/illumina_MPG_2013_contig.fasta -o quast_result
 
 conda deactivate
