@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 file1 = "consensus_pilon.fasta" # One Quiver and Pilon Polishing
-file2 = "contigs_reference.fasta" # illumina contig reference
-file3 = "polished_assembly.fasta" # HGAP Assembly
+file2 = "illumina_MPG_2013_contig.fasta" # illumina contig reference
+file3 = "HGAP_assembly.fasta" # HGAP Assembly
 
 def get_stats(f):
     '''
@@ -49,5 +49,7 @@ plt.ylabel("Cumulative Probability")
 
 plt.margins(0.02) # avoid out of range values
 
-plt.show()
+
+plt.savefig('CDF.png')
+# plt.show()
 
