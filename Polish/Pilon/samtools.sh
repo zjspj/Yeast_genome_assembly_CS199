@@ -9,9 +9,10 @@
 #$ -pe openmp 4
 
 
+REF_Prefix="consensus"
 ILLUMINA_SAMPLE_NAME="W303"
 ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_consensus.sam"
-REF="consensus.fasta"
+REF="${REF_Prefix}.fasta"
 
 source ~/.miniconda3rc
 conda activate final_project_1

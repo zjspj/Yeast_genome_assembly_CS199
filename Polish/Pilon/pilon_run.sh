@@ -7,9 +7,11 @@
 #$ -ckpt restart
 #$ -pe openmp 32
 
+
+REF_Prefix="consensus"
 ILLUMINA_SAMPLE_NAME="W303"
-ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_consensus_sorted.bam"
-REF="consensus.fasta"
+ILLUMINA_ALLIGNED="${ILLUMINA_SAMPLE_NAME}_${REF_Prefix}_sorted.bam"
+REF="${REF_Prefix}.fasta"
 
 source ~/.miniconda3rc
 conda activate final_project_1

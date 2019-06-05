@@ -8,7 +8,8 @@
 #$ -pe openmp 2
 
 INPUT_DIR=../6_quiver
-INPUT_FILE="consensus.fasta" # the results from the first round of quiver. change to consensus_second.fasta for the result from the second round of quiver.
+REF_Prefix="consensus"
+REF="${REF_Prefix}.fasta" # the results from the first round of quiver. change to consensus_second.fasta for the result from the second round of quiver.
 SAMPLE_DIR=../../rawdata/illumina
 SAMPLE_NAME="SRR1569900"
 
@@ -18,6 +19,6 @@ conda activate final_project_1
 ln -s ${SAMPLE_DIR}/${SAMPLE_NAME}_1.fastq
 ln -s ${SAMPLE_DIR}/${SAMPLE_NAME}_2.fastq
 
-bowtie2-build --threads ${NSLOTS} ${INPUT_DIR}/${INPUT_FILE} $(basename ${INPUT_FILE} .fasta)
+bowtie2-build --threads ${NSLOTS} ${INPUT_DIR}/${REF} $(basename ${REF} .fasta)
 
 conda deactivate
