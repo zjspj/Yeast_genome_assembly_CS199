@@ -8,6 +8,9 @@
 
 #### busco
 
+(***When runnning busco.sh for the first time, go in to busco.sh, uncomment both export command and run the code with those export command. After the first run, comment out both export command like the original code and run it without the export command.***)
+
+
 [busco.sh](busco/busco.sh)  (run inside folder canu_job/9_busco/) (activate different part of the script to obtain busco result for differernt assembly)
 
 #### mummer_plot/
