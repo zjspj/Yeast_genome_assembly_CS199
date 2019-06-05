@@ -27,7 +27,7 @@
 
 #### augustus/
 
-**1st:** [augustus.sh](augustus/augustus.sh)  (run inside folder canu_job/12_augustus)
+**1st:** [augustus.sh](augustus/augustus.sh)  (run inside folder canu_job/12_augustus  ***Edit in your LD_LIBRARY_PATH accordingly***)
 
 **2nd:** [bedtools.sh](augustus/bedtools.sh)  (run inside folder canu_job/12_augustus)
 

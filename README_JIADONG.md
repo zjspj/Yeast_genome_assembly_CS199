@@ -1,11 +1,36 @@
 # 1. introduction
 ## Directory tree
+[Full directory tree with the rawdata file](directory_tree.txt)
 ```
-/pub/jiadony1
+.
 |-- canu_job
-|   |-- 0_output
 |   |-- 10_mummer
-|   |   `-- nucmer.sh
+|   |   |-- consensus_pilon_HGAP_assembly.delta
+|   |   |-- consensus_pilon_HGAP_assembly.filter
+|   |   |-- consensus_pilon_HGAP_assembly.fplot
+|   |   |-- consensus_pilon_HGAP_assembly.gp
+|   |   |-- consensus_pilon_HGAP_assembly.png
+|   |   |-- consensus_pilon_HGAP_assembly.rplot
+|   |   |-- consensus_pilon_illumina_MPG_2013.delta
+|   |   |-- consensus_pilon_illumina_MPG_2013.filter
+|   |   |-- consensus_pilon_illumina_MPG_2013.fplot
+|   |   |-- consensus_pilon_illumina_MPG_2013.gp
+|   |   |-- consensus_pilon_illumina_MPG_2013.png
+|   |   |-- consensus_pilon_illumina_MPG_2013.rplot
+|   |   `-- mummer_plot.sh
+|   |-- 11_cdp
+|   |   |-- cdf_graph.py
+|   |   |-- CDF.png
+|   |   `-- cdf.sh
+|   |-- 12_augustus
+|   |   |-- augustus_consensus_pilon.fasta
+|   |   |-- augustus_consensus_pilon.gff3
+|   |   |-- augustus.sh
+|   |   |-- augustus_stat_report.txt
+|   |   |-- bedtools.sh
+|   |   |-- consensus_pilon.fasta -> ../7_pilon/consensus_pilon.fasta
+|   |   |-- consensus_pilon.fasta.fai
+|   |   `-- trinityNx.sh
 |   |-- 2_unzip_pacbio
 |   |   |-- 0001
 |   |   |-- 0002
@@ -21,102 +46,159 @@
 |   |-- 4_merged_fastq
 |   |   `-- yeast.fastq
 |   |-- 5_canu
-|   |   `-- 5_canu.contigs.fasta
-|   |-- 6_quiver_1st
+|   |   |-- 5_canu.contigs.fasta
+|   |   |-- 5_canu.contigs.gfa
+|   |   |-- 5_canu.contigs.layout
+|   |   |-- 5_canu.contigs.layout.readToTig
+|   |   |-- 5_canu.contigs.layout.tigInfo
+|   |   |-- 5_canu.correctedReads.fasta.gz
+|   |   |-- 5_canu.report
+|   |   |-- 5_canu.seqStore.err
+|   |   |-- 5_canu.seqStore.ssi
+|   |   |-- 5_canu.trimmedReads.fasta.gz
+|   |   |-- 5_canu.unassembled.fasta
+|   |   |-- 5_canu.unitigs.bed
+|   |   |-- 5_canu.unitigs.fasta
+|   |   |-- 5_canu.unitigs.gfa
+|   |   |-- 5_canu.unitigs.layout
+|   |   |-- 5_canu.unitigs.layout.readToTig
+|   |   |-- 5_canu.unitigs.layout.tigInfo
+|   |   |-- canu-logs
+|   |   |-- canu-scripts
+|   |   |-- haplotype
+|   |   `-- tree
+|   |-- 6_quiver
+|   |   |-- 2_unzip_pacbio -> ../2_unzip_pacbio
+|   |   |-- 5_canu.contigs.fasta -> ../5_canu/5_canu.contigs.fasta
+|   |   |-- 5_canu.contigs.fasta.fai
 |   |   |-- consensus.fasta
 |   |   |-- consensus.fastq
+|   |   |-- input_0001.fofn
+|   |   |-- input_0002.fofn
+|   |   |-- input_0007.fofn
+|   |   |-- input_0011.fofn
+|   |   |-- input_0012.fofn
+|   |   |-- input_0013.fofn
+|   |   |-- input_0014.fofn
+|   |   |-- input_0018.fofn
+|   |   |-- input_0019.fofn
+|   |   |-- input_0020.fofn
+|   |   |-- input_0021.fofn
+|   |   |-- input_master.fofn
+|   |   |-- merge_cmp_h5.sh
+|   |   |-- myjoblist.txt
+|   |   |-- out_0001.cmp.h5
+|   |   |-- out_0002.cmp.h5
+|   |   |-- out_0007.cmp.h5
+|   |   |-- out_0011.cmp.h5
+|   |   |-- out_0012.cmp.h5
+|   |   |-- out_0013.cmp.h5
+|   |   |-- out_0014.cmp.h5
+|   |   |-- out_0018.cmp.h5
+|   |   |-- out_0019.cmp.h5
+|   |   |-- out_0020.cmp.h5
+|   |   |-- out_0021.cmp.h5
+|   |   |-- out_all.cmp.h5
 |   |   |-- pbalign.sh
 |   |   |-- prep_cmp_h5.sh
-|   |   |-- prep_fofn.sh
-|   |   `-- quiver.sh
-|   |-- 6_quiver_2nd
-|   |   |-- consensus.fasta
-|   |   |-- consensus_second.fasta
-|   |   `-- quiver2.sh
-|   |-- 7_pilon_0X1X
-|   |   |-- pilon_bowtie2.sh
-|   |   |-- pilon_bowtie_build.sh
+|   |   |-- quiver_run.sh
+|   |   `-- variants.gff
+|   |-- 7_pilon
+|   |   |-- bowtie2.sh
+|   |   |-- bowtie_build.sh
+|   |   |-- consensus.1.bt2
+|   |   |-- consensus.2.bt2
+|   |   |-- consensus.3.bt2
+|   |   |-- consensus.4.bt2
+|   |   |-- consensus.fasta -> ../6_quiver/consensus.fasta
+|   |   |-- consensus.fasta.fai
+|   |   |-- consensus_pilonBadCoverage.wig
+|   |   |-- consensus_pilonChanges.wig
+|   |   |-- consensus_pilonClippedAlignments.wig
+|   |   |-- consensus_pilonCopyNumber.wig
+|   |   |-- consensus_pilonCoverage.wig
+|   |   |-- consensus_pilonDeltaCoverage.wig
+|   |   |-- consensus_pilonDipCoverage.wig
+|   |   |-- consensus_pilon.fasta
+|   |   |-- consensus_pilonGC.wig
+|   |   |-- consensus_pilonPctBad.wig
+|   |   |-- consensus_pilonPhysicalCoverage.wig
+|   |   |-- consensus_pilonPilon.bed
+|   |   |-- consensus_pilonUnconfirmed.wig
+|   |   |-- consensus_pilon.vcf
+|   |   |-- consensus_pilonWeightedMq.wig
+|   |   |-- consensus_pilonWeightedQual.wig
+|   |   |-- consensus.rev.1.bt2
+|   |   |-- consensus.rev.2.bt2
 |   |   |-- pilon_run.sh
-|   |   `-- pilon_samtools.sh
-|   |-- 7_pilon_1X1X
-|   |   |-- augustus.sh
-|   |   |-- pilon_bowtie2.sh
-|   |   |-- pilon_bowtie_build.sh
-|   |   |-- pilon_run.sh
-|   |   `-- pilon_samtools.sh
-|   |-- 7_pilon_2X1X
-|   |   |-- pilon_bowtie2.sh
-|   |   |-- pilon_bowtie_build.sh
-|   |   |-- pilon_run.sh
-|   |   `-- pilon_samtools.sh
+|   |   |-- samtools.sh
+|   |   |-- SRR1569900_1.fastq -> ../../rawdata/illumina/SRR1569900_1.fastq
+|   |   |-- SRR1569900_2.fastq -> ../../rawdata/illumina/SRR1569900_2.fastq
+|   |   |-- W303_consensus.bam
+|   |   |-- W303_consensus.sam
+|   |   |-- W303_consensus_sorted.bai
+|   |   `-- W303_consensus_sorted.bam
 |   |-- 8_quast
-|   |   |-- all_final_quast
-|   |   |-- all_quast
-|   |   |-- only_final_quast
-|   |-- 9_busco
-|   |   |-- 9_busco_canu
-|   |   |-- 9_busco_HGAP
-|   |   |-- 9_busco_illumina
-|   |   |-- 9_busco_pilon_0X1X
-|   |   |-- 9_busco_pilon_1X1X
-|   |   |-- 9_busco_pilon_2X1X
-|   |   |-- 9_busco_quiver_1st
-|   |   |-- 9_busco_quiver_2nd
-|   |   |-- busco.sh
-|   |   |-- busco.tar.gz
-|   |   |-- log_busco
-|   |   `-- tmp
-|   `-- yeast_script
-|       |-- analysis
-|       |   `-- busco.sh
-|       |-- separate_contigs.py
-|       |-- yeast_1_init_environment.sh
-|       |-- yeast_2_unzip_pacbio.sh
-|       |-- yeast_5_canu.sh
-|       `-- yeast_generate_fastq.sh
+|   |   |-- quast_result
+|   |   |   |-- basic_stats
+|   |   |   |   |-- consensus_pilon_GC_content_plot.pdf
+|   |   |   |   |-- cumulative_plot.pdf
+|   |   |   |   |-- GC_content_plot.pdf
+|   |   |   |   |-- HGAP_assembly_GC_content_plot.pdf
+|   |   |   |   |-- illumina_MPG_2013_contig_GC_content_plot.pdf
+|   |   |   |   `-- Nx_plot.pdf
+|   |   |   |-- icarus.html
+|   |   |   |-- icarus_viewers
+|   |   |   |   `-- contig_size_viewer.html
+|   |   |   |-- quast.log
+|   |   |   |-- report.html
+|   |   |   |-- report.pdf
+|   |   |   |-- report.tex
+|   |   |   |-- report.tsv
+|   |   |   |-- report.txt
+|   |   |   |-- transposed_report.tex
+|   |   |   |-- transposed_report.tsv
+|   |   |   `-- transposed_report.txt
+|   |   `-- quast.sh
+|   `-- 9_busco
+|       |-- busco.sh
+|       |-- run_9_busco_Final_Assembly
+|       |   |-- angustus_output
+|       |   |-- blask_output
+|       |   |-- full_table_9_busco_Final_Assembly.tsv
+|       |   |-- hmmer_output
+|       |   |-- missing_busco_list_9_busco_Final_Assembly.tsv
+|       |   |-- short_summary_9_busco_Final_Assembly.txt
+|       |   `-- single_copy_busco_sequences
+|       `-- tmp
+|-- canu_run.sh
+|-- create_folder.sh
+|-- directory_tree.txt
+|-- download_data.sh
+|-- generate_fastq.sh
 `-- rawdata
     |-- busco
-    |   |-- eukaryota_odb9
-    |   |-- eukaryota_odb9.tar.gz
     |   |-- saccharomycetales_odb9
+    |   |   |-- ancestral
+    |   |   |-- ancestral_variants
+    |   |   |-- dataset.cfg
+    |   |   |-- hmms
+    |   |   |-- info
+    |   |   |-- lengths_cutoff
+    |   |   |-- prfl
+    |   |   `-- scores_cutoff
     |   `-- saccharomycetales_odb9.tar.gz
     |-- illumina
-    |   |-- accessionlist.txt
-    |   |-- ERX1999216_1.fastq.gz
-    |   |-- ERX1999216_2.fastq.gz
-    |   |-- ERX1999217_1.fastq.gz
-    |   |-- ERX1999217_2.fastq.gz
-    |   |-- ERX1999218_1.fastq.gz
-    |   |-- ERX1999218_2.fastq.gz
-    |   |-- ERX1999219_1.fastq.gz
-    |   |-- ERX1999219_2.fastq.gz
     |   |-- SRR1569900_1.fastq
     |   `-- SRR1569900_2.fastq
-    |-- pacbio
-    |   |-- 0001.tar.gz
-    |   |-- 0002.tar.gz
-    |   |-- 0007.tar.gz
-    |   |-- 0011.tar.gz
-    |   |-- 0012.tar.gz
-    |   |-- 0013.tar.gz
-    |   |-- 0014.tar.gz
-    |   |-- 0018.tar.gz
-    |   |-- 0019_contains_2.tgz
-    |   |-- 0019.tar.gz
-    |   |-- 0020.tar.gz
-    |   |-- 0021.tar.gz
-    |   |-- accessionlist.txt
-    |   |-- file_list.txt
-    |   `-- HGAP_Assembly
-    |-- REF
-    |   |-- HGAP_assembly.fasta
-    |   |-- illumina_MPG_2013_contig.fasta
-    |   |-- illumina_MPG_2013.fasta
-    |   |-- separate.py
-    |   `-- test
-    |-- SRR1569900_1.fastq
-    `-- SRR1569900_2.fastq
+    `-- REF
+        |-- HGAP_assembly.fasta
+        |-- illumina_MPG_2013_contig.fasta
+        |-- illumina_MPG_2013.fasta
+        |-- separate_short_read_contigs.py
+        `-- separate_short_read_contigs.sh
 ```
+
 # 2. Pipeline
 
 ![work_flow](Figures/work_flow.png)
