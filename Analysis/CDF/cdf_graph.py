@@ -5,7 +5,6 @@ file1 = "../7_pilon/consensus_pilon.fasta" # One Quiver and Pilon Polishing
 file2 = "../../rawdata/REF/HGAP_assembly.fasta" # illumina contig reference
 file3 = "../../rawdata/REF/illumina_MPG_2013_contig.fasta" # HGAP Assembly
 
-
 def get_stats(f):
     '''
     This function calculate the length of each contig and return a list contains all the contigs' length.

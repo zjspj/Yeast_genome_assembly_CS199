@@ -76,7 +76,7 @@ gunzip ./rawdata/illumina/SRR1569900_2.fastq.gz
 
 wget http://datasets.pacb.com.s3.amazonaws.com/2013/Yeast/HGAP_Assembly/polished_assembly.fasta -O ./rawdata/REF/HGAP_assembly.fasta
 wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/292/815/GCA_000292815.1_ASM29281v1/GCA_000292815.1_ASM29281v1_genomic.fna.gz -O ./rawdata/REF/GCA_000292815.1_ASM29281v1_genomic.fna.gz
-gunzip ./rawdata/REF/GCA_000292815.1_ASM29281v1_genomic.fna.gunzip
+gunzip ./rawdata/REF/GCA_000292815.1_ASM29281v1_genomic.fna.gz
 mv ./rawdata/REF/GCA_000292815.1_ASM29281v1_genomic.fna ./rawdata/REF/illumina_MPG_2013.fasta
 
 
