@@ -21,7 +21,7 @@ INPUT_FASTA=../7_pilon/consensus_pilon.fasta
 # INPUT_FASTA=../../rawdata/REF/illumina_MPG_2013.fasta 
 
 source ~/.miniconda3rc
-conda activate final_project_1
+conda activate final_project_4
 
 export AUGUSTUS_CONFIG_PATH=/data/users/jiadony1/bin/miniconda3/pkgs/augustus-3.2.2-0/config
 export PATH=$PATH:/data/users/jiadony1/bin/miniconda3/pkgs/augustus-3.2.2-0/scripts
