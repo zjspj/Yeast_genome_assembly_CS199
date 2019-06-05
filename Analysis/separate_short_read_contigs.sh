@@ -1,5 +1,5 @@
 #!/bin/bash
-#$ -N log_CDF
+#$ -N log_separate_short_read_contigs
 ## -t 1-11
 #$ -q pub8i
 #$ -m beas
@@ -10,6 +10,6 @@
 source ~/.miniconda3rc
 conda activate final_project_1
 
-python cdf_graph.py
+python separate_short_read_contigs.py
 
 conda deactivate

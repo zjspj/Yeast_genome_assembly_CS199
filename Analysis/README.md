@@ -4,7 +4,7 @@
 
 ## Below is the location to run each script.
 
-### **RUN FIRST!!! : [separate_short_read_contigs.py](separate_short_read_contigs.py)  (run inside folder rawdata/REF/)**
+### **RUN FIRST!!! : [separate_short_read_contigs.sh](separate_short_read_contigs.sh)  (run inside folder rawdata/REF/ while [separate_short_read_contigs.py](separate_short_read_contigs.py) is in the same folder )**
 
 #### busco
 
@@ -19,7 +19,7 @@
 
 #### CDF/
 
-[cdf_graph.py](CDF/cdf_graph.py)  (run inside folder canu_job/11_CDF)
+[CDF.sh](CDF/CDF.sh)  (run inside folder canu_job/11_CDF while [cdf_graph.py](CDF/cdf_graph.py) is in the same folder)
 
 #### quast/
 
@@ -29,4 +29,6 @@
 
 **1st:** [augustus.sh](augustus/augustus.sh)  (run inside folder canu_job/12_augustus)
 
-**2nd:** [transdecoder.sh](augustus/transdecoder.sh)  (run inside folder canu_job/12_augustus)
+**2nd:** [bedtools.sh](augustus/bedtools.sh)  (run inside folder canu_job/12_augustus)
+
+**3rd:** [trinityNx.sh](augustus/trinityNx.sh)  (run inside folder canu_job/12_augustus)
