@@ -6,29 +6,29 @@
 
 ### **RUN FIRST!!! : [separate_short_read_contigs.sh](separate_short_read_contigs.sh)  (run inside folder rawdata/REF/ while [separate_short_read_contigs.py](separate_short_read_contigs.py) is in the same folder )**
 
-#### busco
+#### Busco
 
 (***When runnning busco.sh for the first time, go in to busco.sh, uncomment both export command and run the code with those export command. After the first run, comment out both export command like the original code and run it without the export command.***)
 
 
-[busco.sh](busco/busco.sh)  (run inside folder canu_job/9_busco/) (activate different part of the script to obtain busco result for differernt assembly)
+[busco.sh](Busco/busco.sh)  (run inside folder canu_job/9_busco/) (activate different part of the script to obtain busco result for differernt assembly)
 
-#### mummer_plot/
+#### Mummer_Plot/
 
-[mummer_plot.sh](mummer_plot/mummer_plot.sh)  (run inside folder canu_job/10_mummer/)
+[mummer_plot.sh](Mummer_plot/mummer_plot.sh)  (run inside folder canu_job/10_mummer/)
 
 #### CDF/
 
 [CDF.sh](CDF/CDF.sh)  (run inside folder canu_job/11_CDF while [cdf_graph.py](CDF/cdf_graph.py) is in the same folder)
 
-#### quast/
+#### Quast/
 
-[quast.sh](quast/quast.sh)  (run inside folder canu_job/8_quast)
+[quast.sh](Quast/quast.sh)  (run inside folder canu_job/8_quast)
 
-#### augustus/
+#### Augustus/
 
-**1st:** [augustus.sh](augustus/augustus.sh)  (run inside folder canu_job/12_augustus  ***Edit in your LD_LIBRARY_PATH accordingly***)
+**1st:** [augustus.sh](Augustus/augustus.sh)  (run inside folder canu_job/12_augustus  ***Edit in your LD_LIBRARY_PATH accordingly***)
 
-**2nd:** [bedtools.sh](augustus/bedtools.sh)  (run inside folder canu_job/12_augustus)
+**2nd:** [bedtools.sh](Augustus/bedtools.sh)  (run inside folder canu_job/12_augustus)
 
-**3rd:** [trinityNx.sh](augustus/trinityNx.sh)  (run inside folder canu_job/12_augustus)
+**3rd:** [trinityNx.sh](Augustus/trinityNx.sh)  (run inside folder canu_job/12_augustus)
