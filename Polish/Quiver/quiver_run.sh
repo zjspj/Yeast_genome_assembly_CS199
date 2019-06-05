@@ -18,7 +18,7 @@ conda activate final_project_1
 samtools faidx ${REFERENCE}
 quiver ${QUERY} -r ${REFERENCE} -o variants.gff -o consensus.fasta -o consensus.fastq
 
-# #second round of quiver. 
+## code for second round of quiver if needed. 
 # samtools faidx ${SECOND_REF}
 # quiver ${QUERY} -r ${SECOND_REF} -o variants_second.gff -o consensus_second.fasta -o consensus_second.fastq
 
