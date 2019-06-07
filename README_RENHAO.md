@@ -1,6 +1,6 @@
 Renhao Luo's README.md
 
-# Introduction
+# I. Introduction
 
 Yeast (Saccharomyces cerevisiae) has been recognized as an important model in the field of biology because some essential cellular processes are the same in human and in yeast. Scientists could use the yeast as a model to figure out the connection between gene, protein, and functions.
 
@@ -124,25 +124,28 @@ In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio
     |-- SRR1569900_1.fastq
     `-- SRR1569900_2.fastq
 ```
-# Pipeline
+# II. Pipeline
+
+All of the following codes are available in this github repository. As long as you have created the environment and required softwares were installed properly (details in section III), you should be able to run all the scripts without changing the scripts. 
+
 ![work flow](Figures/work_flow.png)
 
 The entire Assembly work flow is shown in the graph above. The blue arrow represents where the result from each step would go. After each step, a Busco score is obtained and statistical results are calculated by Quast. Lastly, graphs were constructed in the end, and Augustus and Trinity were run for gene annotation results. Each step is explained in the following sections. Information about versions are described in the [final paper](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing).
 
-# Pipeline Steps
+# III. Pipeline Steps
 
 ## 1. Preparation
 
 ### 1.1 File Directory Set Up
 
-The first step is to set up the file directory on your machine. Our [create_folder.sh](Create_Environment/create_folder.sh) helps you to organize all the rawdata and scripts, and save results.
+The first step is to set up the file directory on your machine. Our [create_folder.sh](Create_Environment/create_folder.sh) helps you to create directory for all the rawdata, scripts, and results.
 
 ### 1.2 Environment Set Up and Download Data
 
 Three independent environments were used in this project, and the .yml files are linked below. 
 
 All assembly works were completed in [final_project_1.yml](final_project_1.yml)
-    ***Note: You need to have your own access to smrtanalysis v2.3.0p5 as it contains Quiver.*** 
+    ***Note: You need to have your own access to smrtanalysis v2.3.0p5 as it contains Quiver. It is not available on Anaconda*** 
 
 All the alignment graphs were generated in [final_project_2.yml](final_project_2.yml)
 
@@ -156,7 +159,9 @@ All the data used in this project are publicly available. All the data can obtai
 
 The Bash5tools is used to convert each PackBio raw data (.bas.h5) to a FASTQ file.
 
-```bash5tools.py --outFilePrefix ${output_file_name} --readType subreads --minLength 1000 --outType fastq --minReadScore 0.75 ${Input_file_name}.bas.h5```
+The following code will be run in a for loop. (Check our [bash script](Canu/generate_fastq.sh) on how to use the tool)
+
+```bash5tools.py --outFilePrefix ${output_file_name} --readType subreads --minLength 1000 --outType fastq --minReadScore 0.75 ${PacBio_raw_data}.bas.h5```
 
 The output file is a FASTQ file for each .bas.h5 file. The next step is to combine all the single FASTQ file to a master FASTQ file. 
 
@@ -172,6 +177,6 @@ Once we have the master.fastq, we can run Canu to assembly the genome.
 
 The variable "genomeSize" is given from the [Saccharomyces Genome Database](https://www.yeastgenome.org). The output file is a FASTA file, which will be used for polishing
 
-# Conclusion
+# IV. Conclusion
 
 ### [Final Write Up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
