@@ -134,6 +134,8 @@ The entire Assembly work flow is shown in the graph above. The blue arrow repres
 
 # III. Pipeline Steps
 
+The naming of each parameter's name in each tool used in this section are for your reference. Please check our bash files in this repository for details on how we ran the program using those variables. 
+
 ## 1. Preparation
 
 ### 1.1 File Directory Set Up
@@ -165,7 +167,7 @@ The following code will be run in a for loop. (Check our [bash script](Canu/gene
 
 The output file is a FASTQ file for each .bas.h5 file. The next step is to combine all the single FASTQ file to a master FASTQ file. 
 
-```cat *.fastq > master.fastq```
+```cat ${working_directory}/*.fastq > ${working_directory}/master.fastq```
 
 The master.fastq will be used as the input file in Canu Run. 
 
