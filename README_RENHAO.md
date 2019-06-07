@@ -127,13 +127,19 @@ In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio
 # Pipeline
 ![work flow](Figures/work_flow.png)
 
-The entire Assembly work flow is shown in the graph above. The blue arrow represents where the result from each step would go. After each step, a Busco score is obtained and statistical results are calculated by Quast. Each step is explained in the following sections. Information about versions are described in the [final paper](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing).
-
+The entire Assembly work flow is shown in the graph above. The blue arrow represents where the result from each step would go. After each step, a Busco score is obtained and statistical results are calculated by Quast. Lastly, graphs were constructed in the end, and Augustus and Trinity were run for gene annotation results. Each step is explained in the following sections. Information about versions are described in the [final paper](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing).
 
 # Pipeline Steps
 
 ## Environment Set Up and Download Data
 
+Three independent environments were used in this project, and the .yml files are linked below. 
+
+All assembly works were completed in ![final_project_1](final_project_1.yml)
+All the alignment graphs were generated in ![final_project_2](final_project_2.yml)
+Augustus and Trinity were ran in ![final_project_3](final_project_3.yml)
+
+All the data used in this project are publicly available. All the data can obtain by using ```wget```. all ```wget``` commands can be found in our ![download data](Create_Environment/download_data.sh) bash file.
 
 
 # Conclusion
