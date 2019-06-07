@@ -4,7 +4,7 @@ Renhao Luo's README.md
 
 Yeast (Saccharomyces cerevisiae) has been recognized as an important model in the field of biology because some essential cellular processes are the same in human and in yeast. Scientists could use the yeast as a model to figure out the connection between gene, protein, and functions.
 
-In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio data to assemble the yeast genome by using Canu. After assembly, we used quiver to correct the structure and pilon to correct nucleotides. Busco score was used to evaluate the assembly results, while quast was applied to compare our assembly results with the reference genome. Lastly, we run Augustus to report the genome annotation.
+In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio data to assemble the yeast genome by using Canu. After assembly, we used quiver to correct the structure and pilon to correct nucleotides. Busco score was used to evaluate the assembly results, while quast was applied to compare our assembly results with the reference genome. Lastly, we run Augustus and Trinity to report the genome annotation.
 
 ## File Map
 
@@ -133,15 +133,16 @@ The entire Assembly work flow is shown in the graph above. The blue arrow repres
 
 ## 1. Preparation
 
-### File Directory Set Up
+### 1.1 File Directory Set Up
 
 The first step is to set up the file directory on your machine. Our [create_folder.sh](Create_Environment/create_folder.sh) helps you to organize all the rawdata and scripts, and save results.
 
-### Environment Set Up and Download Data
+### 1.2 Environment Set Up and Download Data
 
 Three independent environments were used in this project, and the .yml files are linked below. 
 
 All assembly works were completed in [final_project_1.yml](final_project_1.yml)
+    ***Note: You need to have your own access to smrtanalysis v2.3.0p5 as it contains Quiver.*** 
 
 All the alignment graphs were generated in [final_project_2.yml](final_project_2.yml)
 
@@ -151,8 +152,25 @@ All the data used in this project are publicly available. All the data can obtai
 
 ## 2. Canu Assembly
 
+### 2.1 Converting raw data to a single master FASTQ
 
+The Bash5tools is used to convert each PackBio raw data (.bas.h5) to a FASTQ file.
 
+```bash5tools.py --outFilePrefix ${output_file_name} --readType subreads --minLength 1000 --outType fastq --minReadScore 0.75 ${Input_file_name}.bas.h5```
+
+The output file is a FASTQ file for each .bas.h5 file. The next step is to combine all the single FASTQ file to a master FASTQ file. 
+
+```cat *.fastq > master.fastq```
+
+The master.fastq is used as input in Canu Run. 
+
+### 2.2 Canu run
+
+Once we have the master.fastq, we can run Canu to assembly the genome. 
+
+```canu -p 5_canu -d ${Output_Directory} genomeSize=12m -pacbio-raw master.fastq useGrid=false```
+
+The variable "genomeSize" is given from the [Saccharomyces Genome Database](https://www.yeastgenome.org). The output file is a FASTA file, which will be used for polishing
 
 # Conclusion
 
