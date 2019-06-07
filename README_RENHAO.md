@@ -131,11 +131,13 @@ The entire Assembly work flow is shown in the graph above. The blue arrow repres
 
 # Pipeline Steps
 
-## File Directory Set Up
+## Preparation
 
-The first step is to set up the file directory on your machine. Our [create_folder.sh](Create_Environment/create_folder.sh) helps you to organize all the rawdata and results.
+### File Directory Set Up
 
-## Environment Set Up and Download Data
+The first step is to set up the file directory on your machine. Our [create_folder.sh](Create_Environment/create_folder.sh) helps you to organize all the rawdata and scripts, and save results.
+
+### Environment Set Up and Download Data
 
 Three independent environments were used in this project, and the .yml files are linked below. 
 
@@ -146,7 +148,6 @@ All the alignment graphs were generated in [final_project_2.yml](final_project_2
 Augustus and Trinity were ran in [final_project_3.yml](final_project_3.yml)
 
 All the data used in this project are publicly available. All the data can obtain by using ```wget```. all ```wget``` commands can be found in our [download_data.sh](Create_Environment/download_data.sh) bash file.
-
 
 
 
