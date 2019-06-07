@@ -181,4 +181,15 @@ The variable "genomeSize" is given from the [Saccharomyces Genome Database](http
 
 # IV. Conclusion
 
+Alignment Results.
+
+![Alignment Graph 1](Figures/Figure-2.png)
+
+![Alignment Graph 2](Figures/Figure-3.png)
+
+Cumulative Distribution Function (CDF) Results
+![CDF](Figures/cdf_figure.png)
+
+# IV. Conclusion
+
 ### [Final Write Up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
