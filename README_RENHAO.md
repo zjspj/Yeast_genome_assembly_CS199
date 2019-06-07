@@ -179,6 +179,22 @@ Once we have the master.fastq, we can run Canu to assembly the genome.
 
 The variable "genomeSize" is given from the [Saccharomyces Genome Database](https://www.yeastgenome.org). The output of Canu is a FASTA file, which will be used for polishing.
 
+## 3. Polishing
+
+### 3.1 Structural Polishing Using Long Reads
+
+#### 3.1.1
+
+### 3.2 Nucleotide Polishing Using Short Reads
+
+#### 3.2.1
+
+## 4. Analysis
+
+### 4.1 Busco Score
+
+### 4.2 Alignment Plots
+
 # IV. Conclusion
 
 ## Alignment Results.
