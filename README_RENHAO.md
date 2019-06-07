@@ -135,9 +135,11 @@ The entire Assembly work flow is shown in the graph above. The blue arrow repres
 
 Three independent environments were used in this project, and the .yml files are linked below. 
 
-All assembly works were completed in [final_project_1](final_project_1.yml)
-All the alignment graphs were generated in [final_project_2](final_project_2.yml)
-Augustus and Trinity were ran in [final_project_3](final_project_3.yml)
+All assembly works were completed in [final_project_1.yml](final_project_1.yml)
+
+All the alignment graphs were generated in [final_project_2.yml](final_project_2.yml)
+
+Augustus and Trinity were ran in [final_project_3.yml](final_project_3.yml)
 
 All the data used in this project are publicly available. All the data can obtain by using ```wget```. all ```wget``` commands can be found in our [download data](Create_Environment/download_data.sh) bash file.
 
