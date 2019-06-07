@@ -101,7 +101,7 @@ The graph above shows the cumulative distribution function (CDF) of the contig l
 
 ### [Final Write Up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
 
-### File Map
+## File Map
 
 ```
 |-- canu_job
