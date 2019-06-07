@@ -126,7 +126,7 @@ In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio
 ```
 # II. Pipeline
 
-All of the following codes are available in this github repository. As long as you have created the environment and required softwares were installed properly (details in section III), you should be able to run all the scripts without changing the scripts. 
+All of the codes used in this project are available in this github repository. As long as you have created the environment and required softwares were installed properly (details in section III), you should be able to run all the programs without changing the scripts. 
 
 ![work flow](Figures/work_flow.png)
 
@@ -167,15 +167,15 @@ The output file is a FASTQ file for each .bas.h5 file. The next step is to combi
 
 ```cat *.fastq > master.fastq```
 
-The master.fastq is used as input in Canu Run. 
+The master.fastq will be used as the input file in Canu Run. 
 
 ### 2.2 Canu run
 
 Once we have the master.fastq, we can run Canu to assembly the genome. 
 
-```canu -p 5_canu -d ${Output_Directory} genomeSize=12m -pacbio-raw master.fastq useGrid=false```
+```canu -p ${output_file_name} -d ${output_directory} genomeSize=12m -pacbio-raw master.fastq useGrid=false```
 
-The variable "genomeSize" is given from the [Saccharomyces Genome Database](https://www.yeastgenome.org). The output file is a FASTA file, which will be used for polishing
+The variable "genomeSize" is given from the [Saccharomyces Genome Database](https://www.yeastgenome.org). The output of Canu is a FASTA file, which will be used for polishing.
 
 # IV. Conclusion
 
