@@ -1,4 +1,4 @@
-Renhao Luo README.md
+Renhao Luo's README.md
 
 # Introduction
 
@@ -150,6 +150,7 @@ Augustus and Trinity were ran in [final_project_3.yml](final_project_3.yml)
 All the data used in this project are publicly available. All the data can obtain by using ```wget```. all ```wget``` commands can be found in our [download_data.sh](Create_Environment/download_data.sh) bash file.
 
 ## 2. Canu Assembly
+
 
 
 
