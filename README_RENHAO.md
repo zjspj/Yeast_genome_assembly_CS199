@@ -183,11 +183,11 @@ The variable "genomeSize" is given from the [Saccharomyces Genome Database](http
 
 ### 3.1 Structural Polishing Using Long Reads
 
-#### 3.1.1
+### 3.1.1
 
 ### 3.2 Nucleotide Polishing Using Short Reads
 
-#### 3.2.1
+### 3.2.1
 
 ## 4. Analysis
 
