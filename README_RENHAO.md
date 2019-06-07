@@ -132,6 +132,10 @@ The entire Assembly work flow is shown in the graph above. The blue arrow repres
 
 # Pipeline Steps
 
+## Environment Set Up and Download Data
+
+
+
 # Conclusion
 
 ### [Final Write Up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
