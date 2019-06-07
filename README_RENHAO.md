@@ -181,7 +181,7 @@ The variable "genomeSize" is given from the [Saccharomyces Genome Database](http
 
 # IV. Conclusion
 
-Alignment Results.
+## Alignment Results.
 
 ![Alignment Graph 1](Figures/Figure-2.png)
 
@@ -193,7 +193,8 @@ The figure above shows the comparison between different rounds of Quiver polishi
 The figure above shows the results from no Quiver polishing, and the comparison between different polishing methods used.  A: The results from Canu assembly and one Pilon compared with the Illumina reference genome. B: The comparison was between the results from Canu assembly and one Pilon polishing with the results from HGAP assembly. C: The correlation was between the results from Canu and Pilon with one run of Quiver and Pilon. D: One round of Quiver and Pilon compared with two rounds of the Quiver.
 
 
-Cumulative Distribution Function (CDF) Results
+## Cumulative Distribution Function (CDF) Result
+
 ![CDF](Figures/cdf_figure.png)
 
 The graph above shows the cumulative distribution function (CDF) of the contig length between different groups. The blue line represents the results from one Quiver and Pilon polishing of the Canu assembly. Green is the result from HGAP assembly, while orange represents our illumina reference. 
