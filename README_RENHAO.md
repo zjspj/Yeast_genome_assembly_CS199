@@ -131,7 +131,7 @@ The entire Assembly work flow is shown in the graph above. The blue arrow repres
 
 # Pipeline Steps
 
-## Preparation
+## 1. Preparation
 
 ### File Directory Set Up
 
@@ -148,6 +148,8 @@ All the alignment graphs were generated in [final_project_2.yml](final_project_2
 Augustus and Trinity were ran in [final_project_3.yml](final_project_3.yml)
 
 All the data used in this project are publicly available. All the data can obtain by using ```wget```. all ```wget``` commands can be found in our [download_data.sh](Create_Environment/download_data.sh) bash file.
+
+## 2. Canu Assembly
 
 
 
