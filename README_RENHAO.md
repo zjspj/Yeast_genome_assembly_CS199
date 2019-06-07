@@ -185,11 +185,18 @@ Alignment Results.
 
 ![Alignment Graph 1](Figures/Figure-2.png)
 
+The figure above shows the comparison between different rounds of Quiver polishing used with references. Blue dots represented inversion, while red dot means a match A: The dot plot showed the results from one round of Quiver and Pilon compared to the illumina reference genome (MPG 2013). B: The comparison was between the results from two rounds of Quiver and Pilon, and the illumina reference genome (MPG 2013). C: The graph represented the results from one round of Quiver and Pilon compared to the results from HGAP assembly. D: The graph represented the comparison between the results from two rounds of Quiver and Pilon, and the HGAP assembly results.
+
+
 ![Alignment Graph 2](Figures/Figure-3.png)
+
+The figure above shows the results from no Quiver polishing, and the comparison between different polishing methods used.  A: The results from Canu assembly and one Pilon compared with the Illumina reference genome. B: The comparison was between the results from Canu assembly and one Pilon polishing with the results from HGAP assembly. C: The correlation was between the results from Canu and Pilon with one run of Quiver and Pilon. D: One round of Quiver and Pilon compared with two rounds of the Quiver.
+
 
 Cumulative Distribution Function (CDF) Results
 ![CDF](Figures/cdf_figure.png)
 
-# IV. Conclusion
+The graph above shows the cumulative distribution function (CDF) of the contig length between different groups. The blue line represents the results from one Quiver and Pilon polishing of the Canu assembly. Green is the result from HGAP assembly, while orange represents our illumina reference. 
+
 
 ### [Final Write Up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
