@@ -147,21 +147,44 @@ The output file from Pilon is ```consensus_pilon.fasta```. Until here, the assem
 
 ### 4.1 Busco Score
 
+We run the Busco Score after each step described above using following code.
+
+Note: in order to run Busco, you need to download the Busco dataset from their [offical website](https://busco.ezlab.org). 
+
+```run_busco -c ${NSLOTS} -i ${INPUT_FASTA} -l ../../rawdata/busco/saccharomycetales_odb9 -o 9_busco -m geno -sp saccharomyces_cerevisiae_S288C ```
+
+In the code above, ```${INPUT_FASTA}``` is where you provide the FASTA file for evaluation. -l is the link to the downloaded Busco dataset. -m is the type of input, and -sp specifies the species. 
+
+The output of Busco is a folder. In the case above, the folder is named as ```9_busco```. Inside the output folder, there will be a ```short_summary_9_busco.txt```, where your Busco score states inside. In the folder, there are different other files containing logs generated during the process.  
+
+
 ### 4.2 Alignment Plots
 
-# IV. Conclusion
+We used Mummerplot to generate the alignment plots. Prior to use Mummerplot, we need to align the two input datasets by using Nucmer. Note: You should use contigs rather than scaffolded FASTA files for plotting. Use [separate_contig](Analysis/pyTools/separate_contigs.py) tool to convert scaffolded FASTA file to contigs.
 
-## Alignment Results.
+Here, we use the result from final polished assembly and illumina reference data as an example. 
+
+```
+nucmer -p consensus_pilon_illumina \
+$illumina.fasta \
+$consensus_pilon.fasta
+```
+The ```illumina.fasta``` is the contig version of the illumina reference. The output file is ```consensus_pilon_illumina.delta``` in this case, and it is used in mummerplot to generate the plot using following code. 
+
+```
+mummerplot --fat --layout --filter \
+-p consensus_pilon_illumina consensus_pilon_illumina.delta \
+-R illumina.fasta \
+-Q consensus_pilon.fasta \
+--png
+```
+The output of Pilon is ```consensus_pilon_illumina.png```, a .png format graph. All the graphs generated are shown below. Detail descriptions are in our final paper. 
 
 ![Alignment Graph 1](Figures/Figure-2.png)
 
-The figure above shows the comparison between different rounds of Quiver polishing used with references. Blue dots represented inversion, while red dot means a match A: The dot plot showed the results from one round of Quiver and Pilon compared to the illumina reference genome (MPG 2013). B: The comparison was between the results from two rounds of Quiver and Pilon, and the illumina reference genome (MPG 2013). C: The graph represented the results from one round of Quiver and Pilon compared to the results from HGAP assembly. D: The graph represented the comparison between the results from two rounds of Quiver and Pilon, and the HGAP assembly results.
-
-
 ![Alignment Graph 2](Figures/Figure-3.png)
 
-The figure above shows the results from no Quiver polishing, and the comparison between different polishing methods used.  A: The results from Canu assembly and one Pilon compared with the Illumina reference genome. B: The comparison was between the results from Canu assembly and one Pilon polishing with the results from HGAP assembly. C: The correlation was between the results from Canu and Pilon with one run of Quiver and Pilon. D: One round of Quiver and Pilon compared with two rounds of the Quiver.
-
+# IV. Conclusion
 
 ## Cumulative Distribution Function (CDF) Result
 
