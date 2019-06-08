@@ -84,7 +84,7 @@ The output of Pbalign is ```out_0001.cmp.h5```. All the .cmp.h5 will need to mer
 
 ### 3.1.2 Quiver
 
-```out_all.cmp.h5``` will need to go through merge, sort and filter before Quiver polishing using Cmph5tools and H5repack. Codes are as following
+```out_all.cmp.h5``` will need to go through merge, sort and filter before Quiver polishing using Cmph5tools and H5repack. Codes are as following.
 
 ```
 cmph5tools.py merge --outFile out_all.cmp.h5 $(ls out_*.cmp.h5)
@@ -102,11 +102,47 @@ Running Quiver:
 
 ```quiver out_all.cmp.h5 -r 5_canu.contigs.fasta -o variants.gff -o consensus.fasta -o consensus.fastq ```
 
-The outputs of Quiver are three files, ```variants.gff``` ```consensus.fasta``` ```consensus.fastq```. For the second round of Quvier, ```consensus.fasta``` will need to be index and use as reference. 
+The outputs of Quiver are three files, ```variants.gff``` ```consensus.fasta``` ```consensus.fastq```. 
+
+***For the second round of Quvier, ```consensus.fasta``` will need to be index and use as reference.*** 
 
 ### 3.2 Nucleotide Polishing Using Short Reads
 
-### 3.2.1
+### 3.2.1 Align illumina data
+
+Prior to Pilon, the illumina raw data will need to align with long read. Bowtie2 is used to do this task. 
+
+Before Bowtie2, Botie2-build is needed to builds a Bowtie index from a DNA sequence.
+
+```bowtie2-build --threads ${NSLOTS} consensus.fasta consensus```
+
+Bowtie2-build has 6 output files, including ``` .1.bt2, .2.bt2, .3.bt2, .4.bt2, .rev.1.bt2 ``` and ```.rev.2.bt2. ```, and these will be used by Bowtie2
+
+Then, we can run Bowtie2 to align the illumina data. The illumina data come with two separate FASTQ files. 
+
+```bowtie2 --threads ${NSLOTS} -x consensus -1 ${1st_illumina_fastq_file} -2 ${2nd_illumina_fastq_file} -S W303_consensus.sam```
+
+```--threads ${NSLOTS}``` defines how many threads that the program allow to use.
+
+The output from Bowtie2 (aligned illumina data) is the ```W303_consensus.sam```, which will be the input in Pilon polishing. 
+
+### 3.2.2 Pilon polishing
+
+The ```W303_consensus.sam``` needs to be sorted and indexed before using as input for Pilon. These tasks need Samtools to complete. Codes are as following.
+
+```
+samtools view --threads ${NSLOTS} -b W303_consensus.sam --reference 5_canu.contigs.fasta` -o W303_consensus.bam
+samtools sort --threads ${NSLOTS} W303_consensus.bam -o W303_consensus_sorted.bam
+samtools index -b W303_consensus_sorted.bam W303_consensus_sorted.bai
+```
+The file that we need to use as input for Pilon is ```W303_consensus_sorted.bam```.
+
+Then, we can run Pilon using the following code. 
+
+```pilon --vcf --tracks --threads ${NSLOTS} --genome consensus.fasta --frags W303_consensus_sorted.bam --output consensus_pilon ```
+
+The output file from Pilon is consensus_pilon.fasta. Until here, the assembly process is completed. 
+
 
 ## 4. Analysis
 
