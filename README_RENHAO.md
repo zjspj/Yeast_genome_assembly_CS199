@@ -35,7 +35,7 @@ All assembly works were completed in [final_project_1.yml](final_project_1.yml)
 
 All the alignment graphs were generated in [final_project_2.yml](final_project_2.yml)
 
-Augustus and Trinity were ran in [final_project_3.yml](final_project_3.yml)
+Augustus and TrinityStats were ran in [final_project_3.yml](final_project_3.yml)
 
 All the data used in this project are publicly available. All the data can obtain by using ```wget```. all ```wget``` commands can be found in our [download_data.sh](Create_Environment/download_data.sh) bash file. There are total of 11 separated folders for the PacBio data. 
 
