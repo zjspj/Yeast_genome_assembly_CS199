@@ -53,11 +53,11 @@ The output file is a FASTQ file for each .bas.h5 file. The name prefix is the sa
 
 ```cat ${working_directory}/*.fastq > ${working_directory}/yeast.fastq```
 
-The output file name is yeast.fastq. The yeast.fastq will be used as the input file in Canu Run. 
+The output file name is ```yeast.fastq```. The yeast.fastq will be used as the input file in Canu Run. 
 
 ### 2.2 Canu run
 
-Once we have the master.fastq, we can run Canu to assembly the genome. 
+Once we have the ```yeast.fastq```, we can run Canu to assembly the genome. 
 
 ```canu -p 5_canu -d ${output_directory} genomeSize=12m -pacbio-raw yeast.fastq useGrid=false```
 
@@ -67,9 +67,10 @@ The variable "genomeSize" is given from the [Saccharomyces Genome Database](http
 
 ***Note: In this section, the first PacBio raw data folder (0001) is used as an example on running the example code. All the codes need to run for all 11 PacBio raw data folders to get final results. Details on how we run the codes are in each scripts in this repository.***
 
-***You need to have your access to smrtanalysis v2.3.0p5 for this section, and ```module load smrtanalysis/2.3.0p5``` before you run***
 
 ### 3.1 Structural Polishing Using Long Reads
+
+***You need to have your access to smrtanalysis v2.3.0p5 for this section, and ```module load smrtanalysis/2.3.0p5``` before you run***
 
 ### 3.1.1 Pbalign
 
@@ -83,7 +84,25 @@ The output of Pbalign is ```out_0001.cmp.h5```. All the .cmp.h5 will need to mer
 
 ### 3.1.2 Quiver
 
-Prior to Quiver, 
+```out_all.cmp.h5``` will need to go through merge, sort and filter before Quiver polishing using Cmph5tools and H5repack. Code are as following
+
+```
+cmph5tools.py merge --outFile out_all.cmp.h5 $(ls out_*.cmp.h5)
+
+cmph5tools.py sort --deep out_all.cmp.h5
+
+h5repack -f GZIP=1 out_all.cmp.h5 tmp.cmp.h5 && mv tmp.cmp.h5 out_all.cmp.h5
+```
+The final output of all the steps are still ```out_all.cmp.h5```.
+Furthermore, we need to index the ```5_canu.contigs.fasta``` before running Quiver using Samtools.
+
+```samtools faidx 5_canu.contigs.fasta```
+
+Running Quiver:
+
+```quiver out_all.cmp.h5 -r 5_canu.contigs.fasta -o variants.gff -o consensus.fasta -o consensus.fastq ```
+
+The outputs of Quiver are three files, ```variants.gff``` ```consensus.fasta``` ```consensus.fastq```. For the second round of Quvier, ```consensus.fasta``` will need to be index and use as reference. 
 
 ### 3.2 Nucleotide Polishing Using Short Reads
 
