@@ -65,7 +65,7 @@ The variable "genomeSize" is given from the [Saccharomyces Genome Database](http
 
 ## 3. Polishing
 
-### 3.1 Structural Polishing Using Long Reads
+### 3.1 Structural Polishing Using Long Reads (Quiver)
 
 ***Note: In this section, the first PacBio raw data folder (0001) is used as an example on running the example code. All the codes need to run for all 11 PacBio raw data folders to get final results. Details on how we run the codes are in each scripts in this repository.***
 
@@ -75,13 +75,13 @@ The variable "genomeSize" is given from the [Saccharomyces Genome Database](http
 
 Prior to run Pbalign, a .fofn file for each raw data needs to generate. The .fofn file is basically a list of raw data name. To generate the fofn file, use ``` ${raw_data_name_prefix} >> input_0001.fofn ```
 
-After generating the .fofn file, we can run Pbalign. 
+After generating the .fofn file, we can run Pbalignm, which maps PacBio reads to reference sequences. 
 
 ```pbalign --forQuiver input_0001.fofn 5_canu.contigs.fasta out_0001.cmp.h5```
 
 The output of Pbalign is ```out_0001.cmp.h5```. All the .cmp.h5 will need to merge into a single file for Quiver polishing, using ``` out_*.cmp.h5 >> out_all.cmp.h5```
 
-### 3.1.2 Quiver
+### 3.1.2 Quiver polishing
 
 ```out_all.cmp.h5``` will need to go through merge, sort and filter before Quiver polishing using Cmph5tools and H5repack. Codes are as following.
 
@@ -105,7 +105,7 @@ The outputs of Quiver are three files, ```variants.gff``` ```consensus.fasta``` 
 
 ***For the second round of Quvier, ```consensus.fasta``` will need to be index and use as reference.*** 
 
-### 3.2 Nucleotide Polishing Using Short Reads
+### 3.2 Nucleotide Polishing Using Short Reads (Pilon)
 
 ### 3.2.1 Align illumina data
 
