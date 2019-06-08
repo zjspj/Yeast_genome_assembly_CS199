@@ -30,6 +30,7 @@ The first step is to set up the file directory on your machine. Our [create_fold
 Three independent environments were used in this project, and the .yml files are linked below. 
 
 All assembly works were completed in [final_project_1.yml](final_project_1.yml)
+    
     ***Note: You need to have your own access to smrtanalysis v2.3.0p5 as it contains Quiver. It is not available on Anaconda*** 
 
 All the alignment graphs were generated in [final_project_2.yml](final_project_2.yml)
