@@ -84,7 +84,7 @@ The output of Pbalign is ```out_0001.cmp.h5```. All the .cmp.h5 will need to mer
 
 ### 3.1.2 Quiver
 
-```out_all.cmp.h5``` will need to go through merge, sort and filter before Quiver polishing using Cmph5tools and H5repack. Code are as following
+```out_all.cmp.h5``` will need to go through merge, sort and filter before Quiver polishing using Cmph5tools and H5repack. Codes are as following
 
 ```
 cmph5tools.py merge --outFile out_all.cmp.h5 $(ls out_*.cmp.h5)
