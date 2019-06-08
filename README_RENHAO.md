@@ -65,10 +65,9 @@ The variable "genomeSize" is given from the [Saccharomyces Genome Database](http
 
 ## 3. Polishing
 
-***Note: In this section, the first PacBio raw data folder (0001) is used as an example on running the example code. All the codes need to run for all 11 PacBio raw data folders to get final results. Details on how we run the codes are in each scripts in this repository.***
-
-
 ### 3.1 Structural Polishing Using Long Reads
+
+***Note: In this section, the first PacBio raw data folder (0001) is used as an example on running the example code. All the codes need to run for all 11 PacBio raw data folders to get final results. Details on how we run the codes are in each scripts in this repository.***
 
 ***You need to have your access to smrtanalysis v2.3.0p5 for this section, and ```module load smrtanalysis/2.3.0p5``` before you run***
 
