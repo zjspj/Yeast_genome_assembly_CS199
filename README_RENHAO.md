@@ -4,7 +4,7 @@ Renhao Luo's README.md
 
 Yeast (Saccharomyces cerevisiae) has been recognized as an important model in the field of biology because some essential cellular processes are the same in human and in yeast. Scientists could use the yeast as a model to figure out the connection between gene, protein, and functions.
 
-In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio data to assemble the yeast genome by using Canu. After assembly, we used quiver to correct the structure and pilon to correct nucleotides. Busco score was used to evaluate the assembly results, while quast was applied to compare our assembly results with the reference genome. Lastly, we run Augustus and Trinity to report the genome annotation and transcripts assembly results, respectively.
+In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio data to assemble the yeast genome by using Canu. After assembly, we used quiver to correct the structure and pilon to correct nucleotides. Busco score was used to evaluate the assembly results, while quast was applied to compare our assembly results with the reference genome. Lastly, we run Augustus and TrinityStats to report the genome annotation and its basic statstical results, respectively.
 
 
 # II. Pipeline
@@ -17,7 +17,7 @@ The entire Assembly work flow is shown in the graph above. The blue arrow repres
 
 # III. Pipeline Steps
 
-The naming of each parameter's name in each tool used in this section are for your reference. Please check our bash files in this repository for details on how we ran the program using those variables. 
+The naming of each parameter in each tool used in this section are for your reference. Please check our bash files in this repository for details on how we ran the program using those parameters. We designed the code try to be as clear as possible. 
 
 ## 1. Preparation
 
@@ -37,7 +37,7 @@ All the alignment graphs were generated in [final_project_2.yml](final_project_2
 
 Augustus and Trinity were ran in [final_project_3.yml](final_project_3.yml)
 
-All the data used in this project are publicly available. All the data can obtain by using ```wget```. all ```wget``` commands can be found in our [download_data.sh](Create_Environment/download_data.sh) bash file.
+All the data used in this project are publicly available. All the data can obtain by using ```wget```. all ```wget``` commands can be found in our [download_data.sh](Create_Environment/download_data.sh) bash file. There are total of 11 separated folders for the PacBio data. 
 
 ## 2. Canu Assembly
 
@@ -45,29 +45,43 @@ All the data used in this project are publicly available. All the data can obtai
 
 The Bash5tools is used to convert each PackBio raw data (.bas.h5) to a FASTQ file.
 
-The following code will be run in a for loop. (Check our [bash script](Canu/generate_fastq.sh) on how to use the tool)
+The following code will be run in a for loop to covert all raw data in 11 folders to FASTQ file. (Check our [bash script](Canu/generate_fastq.sh) on how to use the tool)
 
 ```bash5tools.py --outFilePrefix ${output_file_name} --readType subreads --minLength 1000 --outType fastq --minReadScore 0.75 ${PacBio_raw_data}.bas.h5```
 
-The output file is a FASTQ file for each .bas.h5 file. The next step is to combine all the single FASTQ file to a master FASTQ file. 
+The output file is a FASTQ file for each .bas.h5 file. The name prefix is the same as the raw data's name prefix. As you can see from our file directory that in each raw data file, there is a FASTQ file. The next step is to combine all the single FASTQ file to a master FASTQ file. 
 
-```cat ${working_directory}/*.fastq > ${working_directory}/master.fastq```
+```cat ${working_directory}/*.fastq > ${working_directory}/yeast.fastq```
 
-The master.fastq will be used as the input file in Canu Run. 
+The output file name is yeast.fastq. The yeast.fastq will be used as the input file in Canu Run. 
 
 ### 2.2 Canu run
 
 Once we have the master.fastq, we can run Canu to assembly the genome. 
 
-```canu -p ${output_file_name} -d ${output_directory} genomeSize=12m -pacbio-raw master.fastq useGrid=false```
+```canu -p 5_canu -d ${output_directory} genomeSize=12m -pacbio-raw yeast.fastq useGrid=false```
 
-The variable "genomeSize" is given from the [Saccharomyces Genome Database](https://www.yeastgenome.org). The output of Canu is a FASTA file, which will be used for polishing.
+The variable "genomeSize" is given from the [Saccharomyces Genome Database](https://www.yeastgenome.org). There are many output files from Canu, and they all have 5_canu as their prefix. ```5_canu.contigs.fasta``` will be used for polishing. 
 
 ## 3. Polishing
 
+***Note: In this section, the first PacBio raw data folder (0001) is used as an example on running the example code. All the codes need to run for all 11 PacBio raw data folders to get final results***
+
 ### 3.1 Structural Polishing Using Long Reads
 
-### 3.1.1
+### 3.1.1 Pbalign
+
+Prior to run Pbalign, a .fofn file for each raw data needs to generate. The .fofn file is basically a list of raw data name. To generate the fofn file, use ``` ${raw_data_name_prefix} >> input_0001.fofn ```
+
+After generating the .fofn file, we can run Pbalign. 
+
+```pbalign --forQuiver input_0001.fofn 5_canu.contigs.fasta out_0001.cmp.h5```
+
+The output of Pbalign is ```out_0001.cmp.h5```. All the .cmp.h5 will need to merge into a single file for Quiver polishing, using ``` out_*.cmp.h5 >> out_all.cmp.h5```
+
+### 3.1.2 Quiver
+
+
 
 ### 3.2 Nucleotide Polishing Using Short Reads
 
