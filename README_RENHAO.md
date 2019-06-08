@@ -141,8 +141,7 @@ Then, we can run Pilon using the following code.
 
 ```pilon --vcf --tracks --threads ${NSLOTS} --genome consensus.fasta --frags W303_consensus_sorted.bam --output consensus_pilon ```
 
-The output file from Pilon is consensus_pilon.fasta. Until here, the assembly process is completed. 
-
+The output file from Pilon is ```consensus_pilon.fasta```. Until here, the assembly process is completed. 
 
 ## 4. Analysis
 
