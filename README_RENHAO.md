@@ -31,7 +31,7 @@ Three independent environments were used in this project, and the .yml files are
 
 All assembly works were completed in [final_project_1.yml](final_project_1.yml)
     
-***Note: You need to have your own access to smrtanalysis v2.3.0p5 as it contains Quiver. It is not available on Anaconda*** 
+***Note: You need to have your own access to smrtanalysis v2.3.0p5 as it contains Pbalign and Quiver. The specific version of the tools are not available on Anaconda*** 
 
 All the alignment graphs were generated in [final_project_2.yml](final_project_2.yml)
 
@@ -65,7 +65,9 @@ The variable "genomeSize" is given from the [Saccharomyces Genome Database](http
 
 ## 3. Polishing
 
-***Note: In this section, the first PacBio raw data folder (0001) is used as an example on running the example code. All the codes need to run for all 11 PacBio raw data folders to get final results***
+***Note: In this section, the first PacBio raw data folder (0001) is used as an example on running the example code. All the codes need to run for all 11 PacBio raw data folders to get final results. Details on how we run the codes are in each scripts in this repository.***
+
+***You need to have your access to smrtanalysis v2.3.0p5 for this section, and ```module load smrtanalysis/2.3.0p5``` before you run***
 
 ### 3.1 Structural Polishing Using Long Reads
 
@@ -81,7 +83,7 @@ The output of Pbalign is ```out_0001.cmp.h5```. All the .cmp.h5 will need to mer
 
 ### 3.1.2 Quiver
 
-
+Prior to Quiver, 
 
 ### 3.2 Nucleotide Polishing Using Short Reads
 
