@@ -157,8 +157,21 @@ In the code above, ```${INPUT_FASTA}``` is where you provide the FASTA file for 
 
 The output of Busco is a folder. In the case above, the folder is named as ```9_busco```. Inside the output folder, there will be a ```short_summary_9_busco.txt```, where your Busco score states inside. In the folder, there are different other files containing logs generated during the process.  
 
+### 4.2 Quast
 
-### 4.2 Alignment Plots
+Quast is used to obtain the basic statistical results after each step. 
+
+The code is as following.
+
+```
+quast ../7_pilon/consensus_pilon.fasta ../../rawdata/REF/HGAP_assembly.fasta ../../rawdata/REF/illumina_MPG_2013_contig.fasta -o quast_result
+```
+The output of Quast is a foder named ```quast_result``` in this particular example. There is a PDF document with all the data included inside the folder. The table below is a summary of the Quast results. Detail explanations are in our final paper. 
+
+![table-1](Figures/Table-1.png)
+
+
+### 4.3 Alignment Plots
 
 We used Mummerplot to generate the alignment plots. Prior to use Mummerplot, we need to align the two input datasets by using Nucmer. Note: You should use contigs rather than scaffolded FASTA files for plotting. Use [separate_contig](Analysis/pyTools/separate_contigs.py) tool to convert scaffolded FASTA file to contigs.
 
@@ -178,11 +191,13 @@ mummerplot --fat --layout --filter \
 -Q consensus_pilon.fasta \
 --png
 ```
-The output of Pilon is ```consensus_pilon_illumina.png```, a .png format graph. All the graphs generated are shown below. Detail descriptions are in our final paper. 
+The output of Mummerplot is ```consensus_pilon_illumina.png``` in this specific example, a .png format graph. All the graphs generated are shown below. Detail descriptions are in our final paper. 
 
 ![Alignment Graph 1](Figures/Figure-2.png)
 
 ![Alignment Graph 2](Figures/Figure-3.png)
+
+### 4.4 Cumulative Distribution Function (CDF)
 
 # IV. Conclusion
 
