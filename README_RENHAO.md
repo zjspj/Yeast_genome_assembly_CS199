@@ -115,13 +115,11 @@ Before Bowtie2, Botie2-build is needed to builds a Bowtie index from a DNA seque
 
 ```bowtie2-build --threads ${NSLOTS} consensus.fasta consensus```
 
-Bowtie2-build has 6 output files, including ``` .1.bt2, .2.bt2, .3.bt2, .4.bt2, .rev.1.bt2 ``` and ```.rev.2.bt2. ```, and these will be used by Bowtie2
+Bowtie2-build has 6 output files, including ``` .1.bt2, .2.bt2, .3.bt2, .4.bt2, .rev.1.bt2 ``` and ```.rev.2.bt2. ```, and these will be used by Bowtie2. ```--threads ${NSLOTS}``` defines how many threads that the program allow to use.
 
 Then, we can run Bowtie2 to align the illumina data. The illumina data come with two separate FASTQ files. 
 
 ```bowtie2 --threads ${NSLOTS} -x consensus -1 ${1st_illumina_fastq_file} -2 ${2nd_illumina_fastq_file} -S W303_consensus.sam```
-
-```--threads ${NSLOTS}``` defines how many threads that the program allow to use.
 
 The output from Bowtie2 (aligned illumina data) is the ```W303_consensus.sam```, which will be the input in Pilon polishing. 
 
