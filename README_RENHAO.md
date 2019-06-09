@@ -4,7 +4,7 @@ Renhao Luo's README.md
 
 Yeast (Saccharomyces cerevisiae) has been recognized as an important model in the field of biology because some essential cellular processes are the same in human and in yeast. Scientists could use the yeast as a model to figure out the connection between gene, protein, and functions.
 
-In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio data to assemble the yeast genome by using Canu. After assembly, we used quiver to correct the structure and pilon to correct nucleotides. Busco score was used to evaluate the assembly results, while quast was applied to compare our assembly results with the reference genome. Lastly, we run Augustus and TrinityStats to report the genome annotation and its basic statstical results, respectively.
+In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio data to assemble the yeast genome by using Canu. After assembly, we used Quiver to correct the structure and Pilon to correct nucleotides. Busco score was used to evaluate the assembly results, while Quast was applied to compare our assembly results with the reference genome. Cumulative Distribution Function (CDF) was also used to determine the continuity of the assemblied genome. Lastly, we run Augustus and TrinityStats to report the genome annotation and its basic statstical results, respectively.
 
 
 # II. Pipeline
