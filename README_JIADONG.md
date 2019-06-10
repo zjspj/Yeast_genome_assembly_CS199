@@ -1,4 +1,4 @@
-# I. introduction
+# I. Introduction
 
 Yeast (_Saccharomyces cerevisiae_) shares many similar genes and DNA structures with human cells. For this similarity, yeast was recognized as an exerllent simplified model to study cellular activities in human cells. By understanding more about the gene and protein of yeast, researchers can shed light to mistry that center around their counter part in human cells. 
 
@@ -6,15 +6,18 @@ In this study, we used publicly avalible _Saccharomyces cerevisiae_ W303 pacbio 
 
 # II. Pipeline
 Our entire pipeline as well as the final assembly was avalible in this github repository. As long as the Anaconda was set up with all three environment intalled and each scripts was ran in specified directory, there is no need to change our script.
+
 ![work_flow](Figures/work_flow.png)
-The graph above displays our entire genome assembly pipeline except the analysis. The blue arrows indicates how each steps progress, the blue boxes contains the raw data, the white boxes contains the different important software in different step, and the green box is the final assembly. All statistical analysis like busco, quast, mummer plot, and CDF are performed on the final assembly. 
+
+The graph above displays our entire genome assembly pipeline except the analysis. The blue arrows indicates how each steps progress, the blue boxes contains the raw data, the white boxes contains the different important software in different step, and the green box is the final assembly. All statistical analysis like busco, quast, mummer plot, and CDF are performed on the final assembly. complete demonstration of the result and our discussion is avalable in our [Final Write Up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
 
 # III. Pipeline Steps
 
-The 
+Shorter explenation regarding how to run each scripts with no change to the script is avalible in each folder as README file.
 
-## ***Data Preprocessing***
+The naming of the directory and file in all bash files are important. Changes to those variable would change the directory structure of the scripts. If changes is needed, please proceed with caution. 
 
+## ***1. Data Preprocessing***
 Directory Tree Genearation
 
 ```
@@ -35,12 +38,12 @@ cat ${INPUT_DIR}/00*/Analysis_Results/*p0.fastq > ${OUTPUT_DIR}/yeast.fastq
 ```
 
 
-## ***Canu Genome Assembling***
+## ***2. Canu Genome Assembling***
 ```
 canu -p 5_canu -d ${OUTPUT_DIR} genomeSize=${GENOME_SIZE} -pacbio-raw ${INPUT_DIR}/${OUTPUT_NAME} useGrid=false
 ```
 
-## ***Quiver Long Read Polishing***
+## ***3. Quiver Long Read Polishing***
 ***1st: Generate .fofn file used in Pbalign***
 ```
 ls ${INPUT_FILE_LOC}/*/*/*.bas.h5 > input_master.fofn
@@ -74,14 +77,19 @@ h5repack -f GZIP=1 out_all.cmp.h5 tmp.cmp.h5 && mv tmp.cmp.h5 out_all.cmp.h5
 samtools faidx ${REFERENCE}
 quiver ${QUERY} -r ${REFERENCE} -o variants.gff -o consensus.fasta -o consensus.fastq
 ```
-## ***Pilon Short Read Polishing***
+## ***4. Pilon Short Read Polishing***
 ***1st: Generate .fofn file used in Pbalign***
 
-## ***Data Analysis***
+## ***5. Data Analysis***
 
 ***Busco Score***
 
-***Con ***
+***Basic statistical Analysis to the final assembly***
+
+***Con***
+
+
+***Busco Score***
 
 
 
