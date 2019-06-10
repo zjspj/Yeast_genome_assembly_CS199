@@ -1,10 +1,17 @@
-# 1. introduction
+# I. introduction
 
-# 2. Pipeline
-Our pipeline contains 
+Yeast (_Saccharomyces cerevisiae_) shares many similar genes and DNA structures with human cells. For this similarity, yeast was recognized as an exerllent simplified model to study cellular activities in human cells. By understanding more about the gene and protein of yeast, researchers can shed light to mistry that center around their counter part in human cells. 
+
+In this study, we used publicly avalible _Saccharomyces cerevisiae_ W303 pacbio long read data to create a complete genome assembly. Canu was used to generate the initial assembly. After the initial assembly, Quiver was ran to correct the general structure. The Quiver polished assembly was then fed into Pilon for one round of nuleotide correction to obtain the final assembly. The final assembly was then evaluated by obtaining busco score with Busco, N50 and contigs count with quast against reference genome, and the continuaty with cumulative distribution function(CDF). Mummer plot is also used to compare how similar the final assembly compares to reference genome. Finally, Augustus was ran to annotate the gene of the assembly and Trinity was used to to evaluate different statitic of the gene.
+
+# II. Pipeline
+Our entire pipeline as well as the final assembly was avalible in this github repository. As long as the Anaconda was set up with all three environment intalled and each scripts was ran in specified directory, there is no need to change our script.
 ![work_flow](Figures/work_flow.png)
+The graph above displays our entire genome assembly pipeline except the analysis. The blue arrows indicates how each steps progress, the blue boxes contains the raw data, the white boxes contains the different important software in different step, and the green box is the final assembly. All statistical analysis like busco, quast, mummer plot, and CDF are performed on the final assembly. 
 
-# 3. Pipeline Steps
+# III. Pipeline Steps
+
+The 
 
 ## ***Data Preprocessing***
 
@@ -79,12 +86,12 @@ quiver ${QUERY} -r ${REFERENCE} -o variants.gff -o consensus.fasta -o consensus.
 
 
 
-# 4. Conclusion:
-### Please check our [Final Write Up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
+# IV. Conclusion:
+### Please check the [Final Write Up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
 
 
 
-# 6. Directory Tree
+# V. Directory Tree
 
 [Full directory tree with the rawdata file](directory_tree.txt)
 ```
