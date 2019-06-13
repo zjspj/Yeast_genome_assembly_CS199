@@ -27,6 +27,8 @@ The first step is to set up the file directory (File map attached in the end) on
 
 ### 1.2 Environment Set Up and Download Data
 
+Follow the instruction to install miniconda [here](https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html), and the instruction of cloning environments [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+
 Three independent environments were used in this project, and the .yml files are linked below. 
 
 All assembly works were completed in [final_project_1.yml](final_project_1.yml)
