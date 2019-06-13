@@ -152,7 +152,7 @@ Note: in order to run Busco, you need to download the Busco lineage dataset from
 
 In the code above, ```${INPUT_FASTA}``` is where you provide the FASTA file for evaluation. -l is the directory of the Busco lineage dataset. -m is the type of input, and -sp specifies the species. 
 
-The output of Busco is a folder. In the example above, the folder is named as ```9_busco```. Inside the output folder, there will be a ```short_summary_9_busco.txt```, where your Busco score states inside. In the folder, there are different other files containing logs generated during the process.  
+The output of Busco is a folder. In the example above, the folder is named as ```9_busco```. Inside the output folder, there will be a ```short_summary_9_busco.txt```, where your Busco score states inside. In the folder, there are different other files containing logs generated during the process. The results from Busco are showing in the table below with Quast results together. 
 
 ### 4.2 Quast
 
@@ -165,10 +165,10 @@ quast ../7_pilon/consensus_pilon.fasta ../../rawdata/REF/HGAP_assembly.fasta ../
 ```
 In this example, the final polished assembly result, HGAP assembly result, and the Illumina reference are used for comparison. It is possible to add more data for comparison. 
 
-The output of Quast is a folder named ```quast_result``` in this particular example. There is a PDF document with all the data included inside the folder. The table below is a summary of the Quast results. Detail explanations are in our final paper. 
+The output of Quast is a folder named ```quast_result``` in this particular example. There is a PDF document with all the data included inside the folder. 
 
 ![table-1](Figures/Table-1.png)
-
+The table above is a summary of the Busco and Quast results. Detail explanations are in our final paper. 
 
 ### 4.3 Alignment Plots
 
