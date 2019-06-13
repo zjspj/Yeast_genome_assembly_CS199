@@ -33,7 +33,7 @@ Three independent environments were used in this project, and the .yml files are
 
 All assembly works were completed in [final_project_1.yml](final_project_1.yml)
     
-***Note: You need to have your own access to smrtanalysis v2.3.0p5 as it contains Pbalign and Quiver. The specific version of the tools are not available on Anaconda*** 
+***Note: You need to have your own access to smrtanalysis v2.3.0p5 as it contains programs required by Pbalign and Quiver. The specific version of the tools are not available in Anaconda nor Bioconda.*** 
 
 All the alignment graphs were generated in [final_project_2.yml](final_project_2.yml)
 
