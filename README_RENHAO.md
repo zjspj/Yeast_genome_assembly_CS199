@@ -2,28 +2,28 @@ Renhao Luo's README.md
 
 # I. Introduction
 
-Yeast (Saccharomyces cerevisiae) has been recognized as an important model in the field of biology because some essential cellular processes are the same in human and in yeast. Scientists could use the yeast as a model to figure out the connection between gene, protein, and functions.
+Yeast (Saccharomyces cerevisiae) has been recognized as an essential model in the field of biology because some essential cellular processes are the same in human and in yeast. Scientists could use the yeast as a model to investigate and disclose the connection between gene, protein, and functions.
 
-In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio data to assemble the yeast genome by using Canu. After assembly, we used Quiver to correct the structure and Pilon to correct nucleotides. Busco score was used to evaluate the assembly results, while basic statistical results were obtained by using Quast and used to compare our assembly results with the reference genome. Cumulative Distribution Function (CDF) was also used to determine the contiguity of the assemblied genome. Lastly, we run Augustus and TrinityStats to report the genome annotation and its basic statstical results, respectively.
+In this project, we used publicly available Saccharomyces cerevisiae W303 PacBio data to assemble the yeast genome by using Canu. In the polishing stage, Quiver was applied to correct the structure, and Pilon was used to correcting nucleotides. Busco score was calculated to evaluate the assembly results, while basic statistical results were obtained by using Quast and used to compare our assembly results with the reference genome. Cumulative Distribution Function (CDF) was also used to determine the continuity of the assembled genome. Lastly, we run Augustus and TrinityStats to report the genome annotation and its basic statistical results, respectively.
 
 
 # II. Pipeline
 
-All of the codes used in this project are available in this github repository. As long as you have created the environment and required softwares were installed properly (details in section III), you should be able to run all the programs without changing the scripts. 
+All of the codes used in this project are available in this Github repository. As long as the required environments and software have installed (details in section III), you should be able to run all the programs without changing the scripts. 
 
 ![work flow](Figures/work_flow.png)
 
-The entire Assembly work flow is shown in the graph above. The blue arrow represents where the result from each step would go. After each step, a Busco score is obtained and statistical results are calculated by Quast. Lastly, graphs were constructed in the end, and Augustus and TrinityStats were run for gene annotation and basic statistical results. Each step is explained in the following sections. Information about versions and interpretations are described in the [final paper](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing).
+The entire Assembly workflow is shown in the graph above. The blue arrow represents where the result from each step would go. After each step, a Busco score is calculated, and statistical results are calculated by Quast. Lastly, graphs were constructed in the end, and Augustus and TrinityStats were run for gene annotation and basic statistical results. Each step is explained in the following sections. Information about versions and interpretations are described in the [final paper](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing).
 
 # III. Pipeline Steps
 
-The naming of each parameter in each tool used in this section are for your reference. Please check our bash files in this repository for details on how we ran the program using those parameters. We designed the code try to be as clear as possible. 
+The naming of each parameter in each tool used are simple for your convenience. Please check our bash files in this repository for details on how we ran the program using those parameters. We designed the code try to be as clear as possible. 
 
 ## 1. Preparation
 
 ### 1.1 File Directory Set Up
 
-The first step is to set up the file directory on your machine. Our [create_folder.sh](Create_Environment/create_folder.sh) helps you to create directory for all the rawdata, scripts, and results.
+The first step is to set up the file directory (File map attached in the end) on your machine. Our [create_folder.sh](Create_Environment/create_folder.sh) helps you to create directory for all the rawdata, scripts, and results.
 
 ### 1.2 Environment Set Up and Download Data
 
@@ -37,27 +37,27 @@ All the alignment graphs were generated in [final_project_2.yml](final_project_2
 
 Augustus and TrinityStats were ran in [final_project_3.yml](final_project_3.yml)
 
-All the data used in this project are publicly available. All the data can obtain by using ```wget```. all ```wget``` commands can be found in our [download_data.sh](Create_Environment/download_data.sh) bash file. There are total of 11 separated folders for the PacBio data. 
+All the data used in this project are publicly available. All the data can obtain by using ```wget```. All ```wget``` commands can be found in our [download_data.sh](Create_Environment/download_data.sh) bash file. There are total of 11 separated folders for the PacBio data, and 2 .FASTQ files for Illumina data. 
 
 ## 2. Canu Assembly
 
 ### 2.1 Converting raw data to a single master FASTQ
 
-The Bash5tools is used to convert each PackBio raw data (.bas.h5) to a FASTQ file.
+The Bash5tools is used to convert the PackBio raw data (.bas.h5) in each raw data folder to a FASTQ file.
 
 The following code will be run in a for loop to covert all raw data in 11 folders to FASTQ file. (Check our [bash script](Canu/generate_fastq.sh) on how to use the tool)
 
 ```bash5tools.py --outFilePrefix ${output_file_name} --readType subreads --minLength 1000 --outType fastq --minReadScore 0.75 ${PacBio_raw_data}.bas.h5```
 
-The output file is a FASTQ file for each .bas.h5 file. The name prefix is the same as the raw data's name prefix. As you can see from our file directory that in each raw data file, there is a FASTQ file. The next step is to combine all the single FASTQ file to a master FASTQ file. 
+The output file is a FASTQ file for .bas.h5 file in each raw data folder. The name prefix is the same as the name prefix of the PacBio raw data file. As you can see from our file map (at the end of this README) that in each raw data file, there is a FASTQ file. The next step is to combine all the single FASTQ file to a master FASTQ file by using following code. 
 
-```cat ${working_directory}/*.fastq > ${working_directory}/yeast.fastq```
+```cat ${working_directory}/00*/*.fastq > ${working_directory}/yeast.fastq```
 
-The output file name is ```yeast.fastq```. The yeast.fastq will be used as the input file in Canu Run. 
+The output file name is ```yeast.fastq```. The yeast.fastq will be the input file for Canu. 
 
 ### 2.2 Canu run
 
-Once we have the ```yeast.fastq```, we can run Canu to assembly the genome. 
+Once we have the ```yeast.fastq```, we can run Canu to assemble the genome.
 
 ```canu -p 5_canu -d ${output_directory} genomeSize=12m -pacbio-raw yeast.fastq useGrid=false```
 
@@ -67,13 +67,13 @@ The variable "genomeSize" is given from the [Saccharomyces Genome Database](http
 
 ### 3.1 Structural Polishing Using Long Reads (Quiver)
 
-***Note: In this section, the first PacBio raw data folder (0001) is used as an example on running the example code. All the codes need to run for all 11 PacBio raw data folders to get final results. Details on how we run the codes are in each scripts in this repository.***
+***Note: In this section, the first PacBio raw data folder (0001) is used as an example of running the example code. All the codes need to run for all 11 PacBio raw data folders to get final results. Details on how we run the codes are in scripts in this repository.***
 
-***You need to have your access to smrtanalysis v2.3.0p5 for this section, and ```module load smrtanalysis/2.3.0p5``` before you run***
+***You need to have your access to smrtanalysis v2.3.0p5 for this section, and ```module load smrtanalysis/2.3.0p5``` before you run the codes in this section.***
 
 ### 3.1.1 Pbalign
 
-Prior to run Pbalign, a .fofn file for each raw data needs to generate. The .fofn file is basically a list of raw data name. To generate the fofn file, use ``` ${raw_data_name_prefix} >> input_0001.fofn ```
+Before run Pbalign, a .fofn file for each raw data needs to generate. The .fofn file is a list of raw data name. To generate the fofn file, use ``` ${raw_data_name_prefix} >> input_0001.fofn ```.
 
 After generating the .fofn file, we can run Pbalignm, which maps PacBio reads to reference sequences. 
 
@@ -83,7 +83,7 @@ The output of Pbalign is ```out_0001.cmp.h5```. All the .cmp.h5 will need to mer
 
 ### 3.1.2 Quiver polishing
 
-```out_all.cmp.h5``` will need to go through merge, sort and filter before Quiver polishing using Cmph5tools and H5repack. Codes are as following.
+```out_all.cmp.h5``` will need to go through merge, sort, and filter before Quiver polishing using Cmph5tools and H5repack. Codes are as following.
 
 ```
 cmph5tools.py merge --outFile out_all.cmp.h5 $(ls out_*.cmp.h5)
@@ -107,21 +107,21 @@ The outputs of Quiver are three files, ```variants.gff``` ```consensus.fasta``` 
 
 ### 3.2 Nucleotide Polishing Using Short Reads (Pilon)
 
-### 3.2.1 Align illumina data
+### 3.2.1 Align Illumina data
 
-Prior to Pilon, the illumina raw data will need to align with long read. Bowtie2 is used to do this task. 
+The Illumina raw data will need to align with long read before Pilon polishing. Bowtie2 is used to do this task. 
 
-Before Bowtie2, Botie2-build is needed to builds a Bowtie index from a DNA sequence.
+Before running Bowtie2, Botie2-build is needed for building a Bowtie index based on the Quiver polishing.
 
 ```bowtie2-build --threads ${NSLOTS} consensus.fasta consensus```
 
-Bowtie2-build has 6 output files, including ``` .1.bt2, .2.bt2, .3.bt2, .4.bt2, .rev.1.bt2 ``` and ```.rev.2.bt2. ```, and these will be used by Bowtie2. ```--threads ${NSLOTS}``` defines how many threads that the program allow to use.
+Bowtie2-build has 6 output files, including ``` .1.bt2, .2.bt2, .3.bt2, .4.bt2, .rev.1.bt2 ``` and ```.rev.2.bt2. ```, and they all will be used by Bowtie2. ```--threads ${NSLOTS}``` defines how many threads that the program allow to use.
 
-Then, we can run Bowtie2 to align the illumina data. The illumina data come with two separate FASTQ files. 
+Then, we can run Bowtie2 to align the illumina data. The Illumina data come with two separate FASTQ files. 
 
 ```bowtie2 --threads ${NSLOTS} -x consensus -1 ${1st_illumina_fastq_file} -2 ${2nd_illumina_fastq_file} -S W303_consensus.sam```
 
-The output from Bowtie2 (aligned illumina data) is the ```W303_consensus.sam```, which will be the input in Pilon polishing. 
+The output from Bowtie2 (aligned Illumina data) is the ```W303_consensus.sam```, which will be the input for Pilon. 
 
 ### 3.2.2 Pilon polishing
 
@@ -144,42 +144,44 @@ The output file from Pilon is ```consensus_pilon.fasta```. Until here, the assem
 
 ### 4.1 Busco Score
 
-We run the Busco Score after each step described above using following code.
+We run the Busco after each step described above using following code.
 
-Note: in order to run Busco, you need to download the Busco dataset from their [offical website](https://busco.ezlab.org). 
+Note: in order to run Busco, you need to download the Busco lineage dataset from their [offical website](https://busco.ezlab.org). we used ```saccharomycetales_odb9``` as the Busco lineage, and ```saccharomyces_cerevisiae_S288C``` as the species. The scripts for downloading the dataset are also available in our data download script.  
 
 ```run_busco -c ${NSLOTS} -i ${INPUT_FASTA} -l ../../rawdata/busco/saccharomycetales_odb9 -o 9_busco -m geno -sp saccharomyces_cerevisiae_S288C ```
 
-In the code above, ```${INPUT_FASTA}``` is where you provide the FASTA file for evaluation. -l is the link to the downloaded Busco dataset. -m is the type of input, and -sp specifies the species. 
+In the code above, ```${INPUT_FASTA}``` is where you provide the FASTA file for evaluation. -l is the directory of the Busco lineage dataset. -m is the type of input, and -sp specifies the species. 
 
-The output of Busco is a folder. In the case above, the folder is named as ```9_busco```. Inside the output folder, there will be a ```short_summary_9_busco.txt```, where your Busco score states inside. In the folder, there are different other files containing logs generated during the process.  
+The output of Busco is a folder. In the example above, the folder is named as ```9_busco```. Inside the output folder, there will be a ```short_summary_9_busco.txt```, where your Busco score states inside. In the folder, there are different other files containing logs generated during the process.  
 
 ### 4.2 Quast
 
-Quast is used to obtain the basic statistical results after each step. 
+Quast is used to calculate the basic statistical results after each step. 
 
 The code is as following.
 
 ```
 quast ../7_pilon/consensus_pilon.fasta ../../rawdata/REF/HGAP_assembly.fasta ../../rawdata/REF/illumina_MPG_2013_contig.fasta -o quast_result
 ```
-The output of Quast is a foder named ```quast_result``` in this particular example. There is a PDF document with all the data included inside the folder. The table below is a summary of the Quast results. Detail explanations are in our final paper. 
+In this example, the final polished assembly result, HGAP assembly result, and the Illumina reference are used for comparison. It is possible to add more data for comparison. 
+
+The output of Quast is a folder named ```quast_result``` in this particular example. There is a PDF document with all the data included inside the folder. The table below is a summary of the Quast results. Detail explanations are in our final paper. 
 
 ![table-1](Figures/Table-1.png)
 
 
 ### 4.3 Alignment Plots
 
-We used Mummerplot to generate the alignment plots. Prior to use Mummerplot, we need to align the two input datasets by using Nucmer. Note: You should use contigs rather than scaffolded FASTA files for plotting. Use [separate_contig](Analysis/pyTools/separate_contigs.py) tool to convert scaffolded FASTA file to contigs.
+We used Mummerplot to generate alignment plots. Before using Mummerplot, we need to align the two input datasets by using Nucmer. Note: You should use contigs rather than scaffolded FASTA files for plotting. Use [separate_contig](Analysis/pyTools/separate_contigs.py) tool to convert scaffolded to contigs FASTA file.
 
-Here, we use the result from final polished assembly and illumina reference data as an example. 
+Here, we use the result from the final polished assembly and Illumina reference data as an example. 
 
 ```
 nucmer -p consensus_pilon_illumina \
 $illumina.fasta \
 $consensus_pilon.fasta
 ```
-The ```illumina.fasta``` is the contig version of the illumina reference. The output file is ```consensus_pilon_illumina.delta``` in this case, and it is used in mummerplot to generate the plot using the following code. 
+The ```illumina.fasta``` is the contig version of the illumina reference. The output file is ```consensus_pilon_illumina.delta``` in this case. The ```.delta``` file is used in Mummerplot to generate the plots using the following code. 
 
 ```
 mummerplot --fat --layout --filter \
@@ -188,7 +190,7 @@ mummerplot --fat --layout --filter \
 -Q consensus_pilon.fasta \
 --png
 ```
-The output of Mummerplot is ```consensus_pilon_illumina.png``` in this specific example, a .png format graph. All the graphs generated are shown below. Detail descriptions are in our final paper. 
+The output of Mummerplot is ```consensus_pilon_illumina.png``` in this specific example. All the graphs generated are shown below. Detail descriptions and interpretations are in our final paper. 
 
 ![Alignment Graph 1](Figures/Figure-2.png)
 
@@ -204,14 +206,18 @@ The final CDF graph is shown below. Detail explanation can be found in our final
 
 ### 4.5 Augustus and TrinityNx
 
-Augustus is used to get the gene annotation, while the basic statistical results are from TrinityNx. 
+### 4.5.1 Augustus for gene annotation.
 
-The following code was used for Augustus
+Augustus is used to getting the gene annotation, while the basic statistical results are from TrinityNx. 
+
+We set the species to be ```saccharomyces_cerevisiae_S288C```. The following code was used to run Augustus:
 
 ```
 augustus --species=saccharomyces_cerevisiae_S288C consensus_pilon.fasta --gff3=on --outfile=augustus_consensus_pilon.gff3  --stopCodonExcludedFromCDS=false
 ```
-The output file from Augustus is ```augustus_consensus_pilon.gff3```, where the predicted gene information are store. 
+The output file from Augustus is ```augustus_consensus_pilon.gff3```, where the predicted gene information is stored. 
+
+### 4.5.2 TrinityNx for statistical results.
 
 Before running TrinityNx, we used Bedtool to convert .gff3 file to FASTA file using the following code.
 
@@ -232,6 +238,9 @@ The output file is augustus_stat_report.txt, and the results are summarized in t
 Results and discussion are in the Final Paper linked below.  
 
 ### [Final Write Up](https://docs.google.com/document/d/1BDGt6vxnI0uYwd2VWN8QQTd4IVIASFijE2-ZktaumLQ/edit?usp=sharing)
+
+
+***A map of files are showing below.***
 
 ## File Map
 
