@@ -79,9 +79,9 @@ Before run Pbalign, a .fofn file for each raw data needs to generate. To begin w
 
 Next, we generate one .fofn file for each raw data folder in the directory by using the code:
 
-```echo ${raw_data_directory}/0001/*/*.bas.h5 >> input_0001.fofn ```.
+```echo ${raw_data_directory}/0001/*/*.bas.h5 >> input_0001.fofn ```
 
-In the end, you will have 11 separated .fofn files (see file map in the end), and each of them contains the name of .bas.h5 files from the corresponding folders. Please refer to the executable [scripts](Polish/Quiver/prep_cmp_h5.sh) on how we completed the task in a for loop. 
+In the end, you will have 11 separated .fofn files (see file map in the end), and each of them contains the name of .bas.h5 files from the corresponding folders. Please refer to the executable [scripts](Polish/Quiver/prep_cmp_h5.sh) on how we completed the task in a ***for loop***. 
 
 After having the required .fofn files, we can run Pbalignm, which maps PacBio reads to reference sequences. 
 
