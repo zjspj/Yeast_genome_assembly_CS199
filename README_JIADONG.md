@@ -218,7 +218,7 @@ The output of the specific run is shown in the following figure except the Busco
 
 ### **6.2. Busco analysis**
 
-[busco.sh](Analysis/Busco/busco.sh) (run inside folder canu_job/9_busco/) (activate different part of the script to obtain busco result for differernt assembly)
+[busco.sh](Analysis/busco/busco.sh) (run inside folder canu_job/9_busco/) (activate different part of the script to obtain busco result for differernt assembly)
 
 Busco evaluates how much similarity shares between the provided assembly and the busco reference species. In the case, we compare the assembly against the _Saccharomyces cerevisiae_ S288C reference dataset from busco.
 
