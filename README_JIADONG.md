@@ -203,7 +203,7 @@ Because the short read reference used durin analysis is in the form of scaffold.
 
 ### **6.1. Basic statistical Analysis with Quast**
 
-[quast.sh](Analysis/Quast/quast.sh) (run inside folder canu_job/8_quast)
+[quast.sh](Analysis/quast/quast.sh) (run inside folder canu_job/8_quast)
 
 This script takes in genome assemblies to produce basic statistical analysis values like N50 and contigs count. The output from Quast will be in a folder named ```quast_result``` The default assembly input for this script contains the final assembly with one round of Quiver polishing and one round of Pilon polishing, the long read reference, and the short read reference
 
@@ -236,7 +236,7 @@ The Busco Score row shows the output of the run. More explenation in the [Final 
 
 ### **6.3. Alignment plots**
 
-[mummer_plot.sh](Analysis/Mummer_plot/mummer_plot.sh) (run inside folder canu_job/10_mummer/)
+[mummer_plot.sh](Analysis/mummer_plot/mummer_plot.sh) (run inside folder canu_job/10_mummer/)
 
 Alignment plots are generated to compare the difference between the assembly and the reference as well as between the assembly with different rounds of Quiver polishing. 
 
@@ -279,7 +279,7 @@ Augustus and TrinityNx produced the annotation to the assembly and the statistic
 
 **6.5.1** 
 
-[augustus.sh](Analysis/Augustus/augustus.sh) (run inside folder canu_job/12_augustus  ***Edit in your LD_LIBRARY_PATH accordingly***)
+[augustus.sh](Analysis/augustus/augustus.sh) (run inside folder canu_job/12_augustus  ***Edit in your LD_LIBRARY_PATH accordingly***)
 
 The augustus annotate the final assembly as _Saccharomyces cerevisiae_ S288C and output the annotation in .gff3 file.
 
@@ -289,7 +289,7 @@ augustus --species=saccharomyces_cerevisiae_S288C consensus_pilon.fasta --gff3=o
 
 **6.5.2** 
 
-[bedtools.sh](Analysis/Augustus/bedtools.sh)  (run inside folder canu_job/12_augustus)
+[bedtools.sh](Analysis/augustus/bedtools.sh)  (run inside folder canu_job/12_augustus)
 
 Bedtools extract the mRNA fragment from the augustus annotation into a fasta file.
 
@@ -299,7 +299,7 @@ bedtools getfasta -fi consensus_pilon.fasta -fo augustus_consensus_pilon.fasta -
 
 **6.5.3** 
 
-[trinityNx.sh](Analysis/Augustus/trinityNx.sh) (run inside folder canu_job/12_augustus)
+[trinityNx.sh](Analysis/augustus/trinityNx.sh) (run inside folder canu_job/12_augustus)
 
 TrinityNx act similar to quast to provide basic statistical analysis for the mRNA extracted from the Augustus annotation.
 
